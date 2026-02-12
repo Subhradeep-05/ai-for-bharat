@@ -1,0 +1,30 @@
+{
+  "scheme_id": "CENT-AGR-001",
+  "scheme_name": "Pradhan Mantri Kisan Samman Nidhi",
+  "ministry": "Ministry of Agriculture and Farmers Welfare",
+  "category": "Agriculture",
+  "description": "Direct income support of ₹6,000 per year to eligible farmer families in three equal installments.",
+  "target_beneficiaries": ["Small and marginal farmers", "Landholding farmer families"],
+  "eligibility": {
+    "occupation": ["Farmer"],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "No specific limit",
+    "gender": "All",
+    "other_conditions": [
+      "Cultivable land ownership",
+      "Excludes institutional landholders",
+      "Excludes government employees' families"
+    ]
+  },
+  "required_documents": ["Aadhaar Card", "Land records", "Bank passbook", "Identity proof"],
+  "benefits": ["₹6,000 annual support", "Direct bank transfer", "Quarterly installments"],
+  "application_process": {
+    "mode": "Online/Offline",
+    "steps": ["Register on PM-KISAN portal", "Submit form to local agriculture office", "Link Aadhaar with bank account"]
+  },
+  "official_website": "https://pmkisan.gov.in",
+  "languages_supported": ["Hindi", "English", "Bengali", "Tamil", "Telugu", "Marathi", "Gujarati", "Punjabi"]
+}

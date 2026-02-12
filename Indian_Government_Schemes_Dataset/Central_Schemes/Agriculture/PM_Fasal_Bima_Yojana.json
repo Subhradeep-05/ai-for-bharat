@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-AGR-002",
+  "scheme_name": "Pradhan Mantri Fasal Bima Yojana",
+  "ministry": "Ministry of Agriculture and Farmers Welfare",
+  "category": "Agriculture Insurance",
+  "description": "Crop insurance scheme to provide financial support to farmers in case of crop failure due to natural calamities.",
+  "target_beneficiaries": ["All farmers including sharecroppers and tenant farmers"],
+  "eligibility": {
+    "occupation": ["Farmer"],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "None",
+    "gender": "All",
+    "other_conditions": ["Must have insurable interest in the crop", "Crop must be notified in the area"]
+  },
+  "required_documents": ["Aadhaar card", "Land records", "Bank account details", "Crop details"],
+  "benefits": ["Premium subsidy", "Comprehensive risk coverage", "Quick claim settlement"],
+  "application_process": {
+    "mode": "Online/Common Service Centers",
+    "steps": ["Contact insurance company", "Submit application form", "Pay premium", "Get certificate"]
+  },
+  "official_website": "https://pmfby.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

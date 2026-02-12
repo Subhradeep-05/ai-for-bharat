@@ -1,0 +1,26 @@
+{
+  "scheme_id": "PEN-CENT-002",
+  "scheme_name": "Atal Pension Yojana",
+  "ministry": "Ministry of Finance",
+  "category": "Pension",
+  "description": "Government-backed pension scheme for unorganized sector workers to ensure monthly pension after 60 years.",
+  "target_beneficiaries": ["Unorganized sector workers", "Daily wage earners", "Domestic workers", "Agricultural laborers"],
+  "eligibility": {
+    "occupation": ["All unorganized sector workers"],
+    "age_range": {
+      "min": 18,
+      "max": 40
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Savings bank account holder", "Not covered by any statutory pension scheme", "Government co-contribution for eligible accounts"]
+  },
+  "required_documents": ["Aadhaar card", "Bank passbook", "Mobile number"],
+  "benefits": ["Guaranteed pension ₹1,000-5,000/month after 60", "Government co-contribution 50% up to ₹1,000/year", "Death benefit to spouse", "Return of corpus to nominee"],
+  "application_process": {
+    "mode": "Through banks/India Post",
+    "steps": ["Visit bank branch", "Fill APY form", "Link savings account", "Set monthly contribution", "Start pension at 60"]
+  },
+  "official_website": "https://www.npscra.nsdl.co.in/nsdl-atal-pension.php",
+  "languages_supported": ["Hindi", "English", "Assamese", "Bengali", "Gujarati", "Kannada", "Malayalam", "Marathi", "Odia", "Punjabi", "Tamil", "Telugu", "Urdu"]
+}

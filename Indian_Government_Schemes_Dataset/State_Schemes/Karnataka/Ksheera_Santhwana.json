@@ -1,0 +1,54 @@
+{
+  "scheme_id": "KA-AGR-001",
+  "scheme_name": "Ksheera Sanjeevini Yojana",
+  "ministry": "Government of Karnataka & Karnataka Milk Federation (KMF)",
+  "category": "Women Empowerment & Dairy Development",
+  "description": "Joint initiative by Karnataka Government and KMF launched in April 2014 to provide economic empowerment to rural women engaged in dairy farming through training, financial support, and resources.",
+  "target_beneficiaries": [
+    "Rural women engaged in dairy farming",
+    "Women from backward castes, Scheduled Tribes, minority communities",
+    "BPL families",
+    "Members of women dairy cooperative societies"
+  ],
+  "eligibility": {
+    "occupation": ["Dairy farmer"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "BPL families prioritized",
+    "gender": "Female",
+    "other_conditions": [
+      "Must be member of a women dairy cooperative society under KMF",
+      "10,000 women selected per district under Phase III",
+      "40 women selected from each of 250 women dairy cooperative societies"
+    ]
+  },
+  "required_documents": [
+    "BPL certificate (if applicable)",
+    "Caste certificate (for SC/ST/minority)",
+    "Membership proof of dairy cooperative society",
+    "Aadhaar card",
+    "Bank account details"
+  ],
+  "benefits": [
+    "Monthly assured income of ₹3,000 - ₹3,500",
+    "₹46,000 interest-free loan for cattle purchase",
+    "Training in livestock management, animal feed, and dairy farming",
+    "Cattle insurance coverage",
+    "Veterinary medical assistance",
+    "Self-employment and livelihood opportunity"
+  ],
+  "application_process": {
+    "mode": "Through KMF dairy cooperative societies",
+    "steps": [
+      "Identification of eligible women by KMF societies",
+      "Selection of 40 women per society",
+      "Enrollment in scheme",
+      "Loan disbursement and cattle purchase",
+      "Training and ongoing support"
+    ]
+  },
+  "official_website": "https://www.kmfnandini.coop",
+  "languages_supported": ["Kannada", "English"]
+}

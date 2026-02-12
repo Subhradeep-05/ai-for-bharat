@@ -1,0 +1,26 @@
+{
+  "scheme_id": "PEN-CENT-007",
+  "scheme_name": "Pradhan Mantri Shram Yogi Maan-Dhan",
+  "ministry": "Ministry of Labour and Employment",
+  "category": "Pension",
+  "description": "Pension scheme for unorganized sector workers with monthly contribution and assured pension after 60 years.",
+  "target_beneficiaries": ["Unorganized sector workers", "Street vendors", "Domestic workers", "Agricultural laborers", "Construction workers"],
+  "eligibility": {
+    "occupation": ["Unorganized sector workers"],
+    "age_range": {
+      "min": 18,
+      "max": 40
+    },
+    "income_limit": "Monthly income ≤ ₹15,000",
+    "gender": "All",
+    "other_conditions": ["No regular source of income", "Not covered under EPS/NPS", "Not income tax payer", "No pension benefits"]
+  },
+  "required_documents": ["Aadhaar card", "Bank passbook", "Mobile number"],
+  "benefits": ["Monthly pension ₹3,000 after 60", "Family pension 50% to spouse", "Contribution from Government", "Withdrawal with interest before 60"],
+  "application_process": {
+    "mode": "Common Service Centers/Banks",
+    "steps": ["Visit CSC or bank", "Submit PM-SYM form", "Pay contribution", "Get enrolment card", "Start pension at 60"]
+  },
+  "official_website": "https://labour.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

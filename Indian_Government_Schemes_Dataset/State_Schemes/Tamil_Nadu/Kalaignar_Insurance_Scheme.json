@@ -1,0 +1,57 @@
+{
+  "scheme_id": "TN-HEA-001",
+  "scheme_name": "Kalaignar Insurance Scheme (CMCHIS)",
+  "ministry": "Government of Tamil Nadu - Health Department",
+  "category": "Health Insurance",
+  "description": "Cashless health insurance scheme for low-income families in Tamil Nadu providing coverage up to ₹5 lakh per family per year.",
+  "target_beneficiaries": [
+    "Low-income families in Tamil Nadu",
+    "Families with annual income ≤ ₹1,20,000",
+    "Unorganized sector workers",
+    "Sri Lankan refugees with proof of citizenship"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹1,20,000 (≤ ₹72,000 in older records)",
+    "gender": "All",
+    "other_conditions": [
+      "Must be resident of Tamil Nadu",
+      "Name must be listed on family ration card",
+      "Migrants from other states require migration certificate + 6 months TN residency",
+      "Excludes government servants, ESI beneficiaries, income tax payees"
+    ]
+  },
+  "required_documents": [
+    "Income certificate from Village Administrative Officer/Revenue Authorities",
+    "Ration card",
+    "Aadhaar card",
+    "Address proof",
+    "Self-declaration from head of family",
+    "PAN card (optional)"
+  ],
+  "benefits": [
+    "₹5,00,000 annual coverage per family (floater basis)",
+    "Cashless hospitalization at 800+ government and 900+ private empanelled hospitals",
+    "1,090+ approved medical procedures covered",
+    "52 diagnostic procedures and 8 follow-up treatments included",
+    "Pre-existing conditions covered with no waiting period",
+    "Maternity and newborn care included",
+    "Ambulance and transport costs covered"
+  ],
+  "application_process": {
+    "mode": "Offline at enrolment centres",
+    "steps": [
+      "Obtain income certificate from VAO/Revenue Authorities",
+      "Visit authorized CMCHIS enrolment centre with documents",
+      "Submit documents to kiosk operator for verification",
+      "Provide biometric details (fingerprints, eye scan, photograph)",
+      "E-card issued upon successful verification"
+    ]
+  },
+  "official_website": "https://www.cmchistn.com",
+  "languages_supported": ["Tamil", "English"]
+}

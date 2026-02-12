@@ -1,0 +1,20 @@
+{
+  "scheme_id": "CENT-HEA-005",
+  "scheme_name": "National Tuberculosis Elimination Programme",
+  "ministry": "Ministry of Health and Family Welfare",
+  "category": "Disease Control",
+  "description": "Comprehensive program for tuberculosis prevention, diagnosis, treatment and elimination by 2025.",
+  "target_beneficiaries": ["TB patients", "High-risk groups", "Contacts of TB patients"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "None",
+    "gender": "All",
+    "other_conditions": ["All suspected TB cases", "Confirmed TB patients", "Migrants", "Tribal population"]
+  },
+  "required_documents": ["Aadhaar card", "Address proof"],
+  "benefits": ["Free diagnosis", "Free treatment", "Nutritional support ₹500/month", "Travel allowance", "Digital adherence"]
+  }

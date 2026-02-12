@@ -1,0 +1,26 @@
+{
+  "scheme_id": "WB-WCD-002",
+  "scheme_name": "Rupashree Prakalpa",
+  "ministry": "West Bengal Department of Women & Child Development",
+  "category": "Marriage Assistance",
+  "description": "One-time financial assistance of ₹25,000 to economically disadvantaged families for marriage of adult daughters.",
+  "target_beneficiaries": ["Girls from economically weak families", "Adult unmarried girls"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹1.5 lakhs",
+    "gender": "Female",
+    "other_conditions": ["Unmarried girl aged 18+", "Resident of West Bengal minimum 5 years", "First marriage"]
+  },
+  "required_documents": ["Age proof", "Income certificate", "Residence proof", "Marriage invitation card", "Bank account details", "Aadhaar card"],
+  "benefits": ["One-time grant ₹25,000", "Direct bank transfer to girl's account", "Support for marriage expenses"],
+  "application_process": {
+    "mode": "Online/Block Development Office",
+    "steps": ["Apply before marriage", "Submit documents at block office", "Verification by committee", "Grant disbursed"]
+  },
+  "official_website": "https://wb.gov.in/rupashree",
+  "languages_supported": ["Bengali", "English"]
+}

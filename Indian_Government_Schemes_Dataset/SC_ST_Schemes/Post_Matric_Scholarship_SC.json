@@ -1,0 +1,26 @@
+{
+  "scheme_id": "SCST-EDU-001",
+  "scheme_name": "Post Matric Scholarship for Scheduled Caste Students",
+  "ministry": "Ministry of Social Justice and Empowerment",
+  "category": "Education",
+  "description": "Scholarship scheme for SC students pursuing post-matriculation/post-secondary education to reduce dropouts.",
+  "target_beneficiaries": ["Scheduled Caste students", "Economically backward SC students"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹2.5 lakhs",
+    "gender": "All",
+    "other_conditions": ["Must belong to SC category", "Admitted to recognized institution", "Regular full-time student", "Minimum attendance 75%"]
+  },
+  "required_documents": ["SC certificate", "Income certificate", "Previous year marksheet", "Admission proof", "Bank account details", "Aadhaar card"],
+  "benefits": ["Maintenance allowance", "Compulsory fee reimbursement", "Book allowance", "Thesis typing charges"],
+  "application_process": {
+    "mode": "Online through National Scholarship Portal",
+    "steps": ["Register on NSP", "Fill application form", "Upload documents", "Institute verification", "Scholarship disbursement"]
+  },
+  "official_website": "https://scholarships.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

@@ -1,0 +1,55 @@
+{
+  "scheme_id": "INF-HOU-001",
+  "scheme_name": "Pradhan Mantri Awas Yojana - Gramin",
+  "ministry": "Ministry of Rural Development",
+  "category": "Rural Housing",
+  "description": "Flagship housing scheme providing pucca houses with basic amenities to rural households who are homeless or living in kutcha/dilapidated houses. Phase-II approved for 2024-25 to 2028-29 for 2 crore additional houses.",
+  "target_beneficiaries": [
+    "Rural households living in kutcha/dilapidated houses",
+    "Houseless rural households",
+    "First-time beneficiary households"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Automatic exclusion for households with any member earning more than ₹15,000 per month or paying Income Tax",
+    "gender": "All (female ownership preferred)",
+    "other_conditions": [
+      "Selection based on SECC 2011 data",
+      "Exclusion criteria: Motorized three/four wheeler, mechanized agriculture equipment, Kisan Credit Card with limit ≥ ₹50,000, any Government employee in household, non-agricultural enterprises registered with Government, paying Income Tax/Professional Tax, owning 2.5+ acres irrigated land or 5+ acres unirrigated land",
+      "Prioritization: Houseless first, followed by those with inadequate housing"
+    ]
+  },
+  "required_documents": [
+    "Ration card",
+    "Record of Rights (land documents)",
+    "Job card (if MGNREGA worker)",
+    "Aadhaar cards of all family members",
+    "Bank passbook"
+  ],
+  "benefits": [
+    "Financial assistance: ₹1.20 lakh in plain areas",
+    "Financial assistance: ₹1.30 lakh in North Eastern Region and Hill States (Himachal Pradesh, Uttarakhand, J&K, Ladakh)",
+    "Convergence: ₹12,000 for toilet from Swachh Bharat Mission",
+    "95 days of unskilled wage under MGNREGA",
+    "Direct Benefit Transfer in three installments",
+    "Construction period: 18 months"
+  ],
+  "application_process": {
+    "mode": "Offline through Gram Panchayat/Block Development Office",
+    "steps": [
+      "SECC 2011 data verified at Gram Sabha",
+      "Eligible households identified based on exclusion criteria",
+      "Beneficiary submits documents to Gram Panchayat",
+      "Verification by local authorities",
+      "First installment credited to bank account",
+      "Construction monitored via AwaasApp",
+      "Subsequent installments released upon inspection"
+    ]
+  },
+  "official_website": "https://pmayg.nic.in",
+  "languages_supported": ["Hindi", "English"]
+}

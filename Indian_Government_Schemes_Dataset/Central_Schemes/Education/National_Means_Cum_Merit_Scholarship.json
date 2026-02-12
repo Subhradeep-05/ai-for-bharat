@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-EDU-002",
+  "scheme_name": "National Means-cum-Merit Scholarship Scheme",
+  "ministry": "Ministry of Education",
+  "category": "Scholarship",
+  "description": "Scholarship for economically weaker meritorious students to prevent dropouts at class VIII level.",
+  "target_beneficiaries": ["Economically weak meritorious students", "Class VIII students"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹3.5 lakhs",
+    "gender": "All",
+    "other_conditions": ["Minimum 55% marks in class VII", "Studying in government/government-aided school", "Pass selection test"]
+  },
+  "required_documents": ["Income certificate", "Caste certificate (if applicable)", "Previous year marksheet", "Bank account details", "Aadhaar card"],
+  "benefits": ["₹12,000 per annum scholarship", "Continuation till class XII", "Direct bank transfer"],
+  "application_process": {
+    "mode": "Online through schools",
+    "steps": ["School nominates students", "Appear for selection test", "Submit documents", "Get scholarship"]
+  },
+  "official_website": "https://scholarships.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

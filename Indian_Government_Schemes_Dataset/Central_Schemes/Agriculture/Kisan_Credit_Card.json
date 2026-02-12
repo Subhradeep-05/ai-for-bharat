@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-AGR-003",
+  "scheme_name": "Kisan Credit Card Scheme",
+  "ministry": "Ministry of Agriculture and Farmers Welfare",
+  "category": "Agriculture Finance",
+  "description": "Provides farmers with timely access to credit for cultivation and other needs with simplified procedure.",
+  "target_beneficiaries": ["Individual farmers", "Joint liability groups", "Tenant farmers"],
+  "eligibility": {
+    "occupation": ["Farmer", "Agricultural laborer"],
+    "age_range": {
+      "min": 18,
+      "max": 75
+    },
+    "income_limit": "None",
+    "gender": "All",
+    "other_conditions": ["Should be cultivator", "Good credit history preferred"]
+  },
+  "required_documents": ["Land documents", "Aadhaar card", "PAN card", "Photos", "Bank account"],
+  "benefits": ["Credit up to ₹3 lakhs", "Interest subvention", "Insurance cover", "Flexible repayment"],
+  "application_process": {
+    "mode": "Bank branches",
+    "steps": ["Visit bank branch", "Submit application", "Provide documents", "Get card issued"]
+  },
+  "official_website": "https://www.nabard.org",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

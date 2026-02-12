@@ -1,0 +1,26 @@
+{
+  "scheme_id": "SCST-EDU-003",
+  "scheme_name": "Eklavya Model Residential Schools",
+  "ministry": "Ministry of Tribal Affairs",
+  "category": "Education",
+  "description": "Residential schools for tribal students in remote areas to provide quality education from class VI to XII.",
+  "target_beneficiaries": ["ST students", "Tribal children in remote areas"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": 10,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹2.5 lakhs",
+    "gender": "All",
+    "other_conditions": ["Belongs to ST category", "Resident of tribal sub-plan area", "Minimum 55% in class V", "Through entrance test"]
+  },
+  "required_documents": ["ST certificate", "Income certificate", "Birth certificate", "Previous class marksheet", "Domicile certificate"],
+  "benefits": ["Free residential education", "Free boarding and lodging", "Uniforms and books", "Medical facilities", "Co-curricular activities"],
+  "application_process": {
+    "mode": "Through State Tribal Departments",
+    "steps": ["Apply through district tribal office", "Appear for entrance test", "Counseling and selection", "Admission to school"]
+  },
+  "official_website": "https://tribal.nic.in/emrs.aspx",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

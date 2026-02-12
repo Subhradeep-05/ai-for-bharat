@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-HEA-004",
+  "scheme_name": "Pradhan Mantri Bhartiya Janaushadhi Pariyojana",
+  "ministry": "Department of Pharmaceuticals",
+  "category": "Affordable Medicines",
+  "description": "Provides quality generic medicines at affordable prices through Janaushadhi Kendras.",
+  "target_beneficiaries": ["All citizens", "Economically weaker sections", "Chronic disease patients"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "None",
+    "gender": "All",
+    "other_conditions": ["Open to all", "No eligibility criteria for purchase"]
+  },
+  "required_documents": ["Doctor's prescription"],
+  "benefits": ["50-90% cheaper medicines", "Quality assured drugs", "1,800+ medicines available", "900+ surgical items"],
+  "application_process": {
+    "mode": "Walk-in to Janaushadhi Kendra",
+    "steps": ["Get doctor's prescription", "Visit nearest Janaushadhi Kendra", "Purchase medicines at discounted rates"]
+  },
+  "official_website": "https://janaushadhi.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

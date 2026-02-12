@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-HEA-001",
+  "scheme_name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana",
+  "ministry": "Ministry of Health and Family Welfare",
+  "category": "Health Insurance",
+  "description": "World's largest health insurance scheme providing coverage of ₹5 lakhs per family per year for secondary and tertiary care hospitalization.",
+  "target_beneficiaries": ["Economically vulnerable families", "Rural and urban poor"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Based on SECC 2011 database",
+    "gender": "All",
+    "other_conditions": ["No age limit", "No family size limit", "Pre-existing conditions covered from day one"]
+  },
+  "required_documents": ["Aadhaar card", "Ration card", "Income certificate (if not in SECC database)"],
+  "benefits": ["₹5 lakhs annual coverage", "Cashless treatment", "1,500+ medical packages", "Portability across India"],
+  "application_process": {
+    "mode": "Online/Common Service Centers",
+    "steps": ["Check eligibility online", "Download e-card", "Visit empaneled hospital", "Avail cashless treatment"]
+  },
+  "official_website": "https://pmjay.gov.in",
+  "languages_supported": ["Hindi", "English", "Bengali", "Tamil", "Telugu", "Marathi", "Gujarati", "Punjabi", "Odia", "Malayalam", "Kannada", "Assamese"]
+}

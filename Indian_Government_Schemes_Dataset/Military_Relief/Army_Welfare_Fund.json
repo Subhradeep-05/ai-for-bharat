@@ -1,0 +1,26 @@
+{
+  "scheme_id": "MIL-REL-002",
+  "scheme_name": "Army Welfare Fund",
+  "ministry": "Ministry of Defence",
+  "category": "Defence Welfare",
+  "description": "Welfare fund for serving and retired Army personnel and their families providing financial assistance and support.",
+  "target_beneficiaries": ["Indian Army personnel", "Ex-servicemen", "Families of martyrs", "Disabled soldiers"],
+  "eligibility": {
+    "occupation": ["Army personnel"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No specific limit",
+    "gender": "All",
+    "other_conditions": ["Serving or retired Army personnel", "Disabled during service", "Families of battle casualties"]
+  },
+  "required_documents": ["Service identity card", "Discharge book", "Pension payment order", "Disability certificate", "Death certificate"],
+  "benefits": ["Education loans for children", "Marriage assistance", "Medical assistance", "Housing loans", "Emergency relief"],
+  "application_process": {
+    "mode": "Through Army Welfare Fund Organization",
+    "steps": ["Apply through unit/Regimental Centre", "Submit documents", "Verification", "Fund disbursed"]
+  },
+  "official_website": "https://indianarmy.nic.in",
+  "languages_supported": ["Hindi", "English"]
+}

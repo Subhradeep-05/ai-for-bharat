@@ -1,0 +1,26 @@
+{
+  "scheme_id": "SCST-EDU-005",
+  "scheme_name": "Pre-Matric Scholarship for Scheduled Caste Students",
+  "ministry": "Ministry of Social Justice and Empowerment",
+  "category": "School Education",
+  "description": "Scholarship for SC students studying in classes IX and X to reduce dropout rates.",
+  "target_beneficiaries": ["SC students", "Children of scavengers", "Children of sanitation workers"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹2.5 lakhs",
+    "gender": "All",
+    "other_conditions": ["Belongs to SC category", "Studying in classes 9 and 10", "Minimum 75% attendance", "Government or government-aided school"]
+  },
+  "required_documents": ["SC certificate", "Income certificate", "Previous class marksheet", "School certificate", "Bank account details", "Aadhaar card"],
+  "benefits": ["₹350/month (day scholars)", "₹750/month (hostellers)", "Annual allowance for books", "Fee reimbursement"],
+  "application_process": {
+    "mode": "Online through National Scholarship Portal",
+    "steps": ["Register on NSP", "Apply through school", "Upload documents", "Verification by school", "Scholarship credited"]
+  },
+  "official_website": "https://scholarships.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

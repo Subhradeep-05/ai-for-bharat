@@ -1,0 +1,26 @@
+{
+  "scheme_id": "SCST-DEV-001",
+  "scheme_name": "Vanbandhu Kalyan Yojana",
+  "ministry": "Ministry of Tribal Affairs",
+  "category": "Tribal Development",
+  "description": "Comprehensive development scheme for tribal communities focusing on education, health, livelihood and infrastructure.",
+  "target_beneficiaries": ["Scheduled Tribes", "Tribal communities", "Particularly Vulnerable Tribal Groups"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Must belong to Scheduled Tribe", "Resident of tribal areas", "Focus on 27 high focus districts"]
+  },
+  "required_documents": ["ST certificate", "Residence proof"],
+  "benefits": ["Education support", "Healthcare facilities", "Skill development", "Infrastructure development", "Livelihood opportunities"],
+  "application_process": {
+    "mode": "State Tribal Departments",
+    "steps": ["Contact state tribal department", "Submit proposals", "Implementation through district administration"]
+  },
+  "official_website": "https://tribal.gov.in",
+  "languages_supported": ["Hindi", "English", "Tribal languages"]
+}

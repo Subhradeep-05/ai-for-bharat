@@ -1,0 +1,26 @@
+{
+  "scheme_id": "WB-HEA-001",
+  "scheme_name": "Swasthya Sathi",
+  "ministry": "West Bengal Health Department",
+  "category": "Health Insurance",
+  "description": "Universal health coverage scheme providing basic health cover for secondary and tertiary care up to ₹5 lakhs per annum per family.",
+  "target_beneficiaries": ["All permanent residents of West Bengal", "Approx 7.5 crore beneficiaries"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Resident of West Bengal", "Family unit defined as self, spouse, children, parents"]
+  },
+  "required_documents": ["Residential proof", "Aadhaar card", "Ration card", "Voter ID"],
+  "benefits": ["₹5 lakhs annual coverage", "Cashless treatment", "Pre-existing diseases covered", "Maternity benefits"],
+  "application_process": {
+    "mode": "Online/Common Service Centers/Hospitals",
+    "steps": ["Register through portal or hospital", "Get health card", "Avail treatment at empaneled hospitals"]
+  },
+  "official_website": "https://www.swasthyasathi.gov.in",
+  "languages_supported": ["Bengali", "English", "Hindi"]
+}

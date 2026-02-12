@@ -1,0 +1,26 @@
+{
+  "scheme_id": "WB-FD-001",
+  "scheme_name": "Khadya Sathi",
+  "ministry": "West Bengal Food & Supplies Department",
+  "category": "Food Security",
+  "description": "Universal Public Distribution System providing subsidized food grains to all ration card holders.",
+  "target_beneficiaries": ["All ration card holders in West Bengal", "Priority and Antyodaya households"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit for general category",
+    "gender": "All",
+    "other_conditions": ["Must have ration card", "Resident of West Bengal"]
+  },
+  "required_documents": ["Ration card", "Aadhaar card"],
+  "benefits": ["Rice at ₹2/kg", "Wheat at ₹2/kg", "Pulses at subsidized rates", "Sugar at subsidized rates"],
+  "application_process": {
+    "mode": "Fair Price Shops",
+    "steps": ["Apply for ration card", "Collect food grains from fair price shop", "Use biometric authentication"]
+  },
+  "official_website": "https://food.wb.gov.in",
+  "languages_supported": ["Bengali", "English", "Hindi"]
+}

@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-HEA-003",
+  "scheme_name": "National Health Mission",
+  "ministry": "Ministry of Health and Family Welfare",
+  "category": "Healthcare Infrastructure",
+  "description": "Comprehensive healthcare initiative to strengthen health systems and provide accessible, affordable healthcare.",
+  "target_beneficiaries": ["All citizens", "Especially rural population", "Vulnerable groups"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "None",
+    "gender": "All",
+    "other_conditions": ["Available to all Indian citizens", "Focus on maternal and child health"]
+  },
+  "required_documents": [],
+  "benefits": ["Free diagnostics", "Essential drugs", "Ambulance services", "Mobile medical units", "Health and wellness centers"],
+  "application_process": {
+    "mode": "Through public health facilities",
+    "steps": ["Visit nearest public health facility", "Register for services", "Avail free/subsidized healthcare"]
+  },
+  "official_website": "https://nhm.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

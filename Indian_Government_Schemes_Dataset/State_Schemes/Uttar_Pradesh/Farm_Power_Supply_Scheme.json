@@ -1,0 +1,60 @@
+{
+  "scheme_id": "UP-AGR-002",
+  "scheme_name": "Farm Power Supply Scheme (PM KUSUM - Uttar Pradesh)",
+  "ministry": "Uttar Pradesh Agriculture Department",
+  "category": "Agriculture & Solar Energy",
+  "description": "Subsidized solar pump scheme for farmers registered with UP Agriculture Department under PM KUSUM Yojana for 2025-26, covering 40,521 solar pumps through e-lottery system.",
+  "target_beneficiaries": [
+    "Farmers registered with UP Agriculture Department",
+    "Farmers needing irrigation solutions",
+    "Farmers in areas with inadequate grid power supply"
+  ],
+  "eligibility": {
+    "occupation": ["Farmer"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No specific income limit",
+    "gender": "All",
+    "other_conditions": [
+      "Must be registered on agriculture.up.gov.in",
+      "Selection through e-lottery system",
+      "4-inch borehole mandatory for 2 HP pumps",
+      "6-inch borehole for 3-5 HP pumps",
+      "8-inch borehole for 7.5-10 HP pumps",
+      "Application deadline: December 15, 2025"
+    ]
+  },
+  "required_documents": [
+    "Farmer registration on agriculture.up.gov.in",
+    "Land ownership documents",
+    "Aadhaar card",
+    "Bank account details",
+    "₹5,000 token money (online booking)"
+  ],
+  "benefits": [
+    "2 HP DC/AC surface pump: ₹98,593 total subsidy (State: ₹56,737 + Central: ₹41,856)",
+    "2 HP DC submersible: ₹1,00,215 total subsidy",
+    "2 HP AC submersible: ₹99,947 total subsidy",
+    "3 HP DC submersible: ₹1,33,621 total subsidy",
+    "3 HP AC submersible: ₹1,32,314 total subsidy",
+    "5 HP AC submersible: ₹1,88,038 total subsidy",
+    "7.5 HP/10 HP AC submersible: ₹2,54,983 maximum subsidy",
+    "6% interest rebate (3% Central + 3% State) under Agricultural Infrastructure Fund for loan availed farmers"
+  ],
+  "application_process": {
+    "mode": "Online",
+    "steps": [
+      "Visit www.agriculture.up.gov.in",
+      "Click on 'Book Solar Pump for Subsidy' link",
+      "Pay ₹5,000 token money online",
+      "Receive confirmation on registered mobile",
+      "Selection through e-lottery",
+      "Pay remaining amount after subsidy confirmation",
+      "Borehole verification conducted"
+    ]
+  },
+  "official_website": "https://agriculture.up.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

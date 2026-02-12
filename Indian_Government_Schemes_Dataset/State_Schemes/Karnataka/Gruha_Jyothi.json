@@ -1,0 +1,45 @@
+{
+  "scheme_id": "KA-ENE-001",
+  "scheme_name": "Gruha Jyothi Scheme",
+  "ministry": "Government of Karnataka - Energy Department",
+  "category": "Free Electricity",
+  "description": "Scheme providing free electricity of up to 200 units per month to residents of Karnataka.",
+  "target_beneficiaries": [
+    "All households in Karnataka",
+    "Residents with ESCOM electricity connection"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": [
+      "Must link ESCOM account number with Aadhaar",
+      "Available to both BPL and APL families",
+      "92% of beneficiaries currently benefitting"
+    ]
+  },
+  "required_documents": [
+    "ESCOM electricity bill/account number",
+    "Aadhaar card",
+    "Residence proof"
+  ],
+  "benefits": [
+    "Free electricity up to 200 units per month",
+    "87% of households saving ₹1,000 per month on electricity bills"
+  ],
+  "application_process": {
+    "mode": "Online",
+    "steps": [
+      "Visit Seva Sindhu Portal",
+      "Link ESCOM account with Aadhaar",
+      "Submit application online",
+      "Benefit applied to electricity bill"
+    ]
+  },
+  "official_website": "https://sevasindhu.karnataka.gov.in",
+  "languages_supported": ["Kannada", "English"]
+}

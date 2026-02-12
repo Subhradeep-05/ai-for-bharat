@@ -1,0 +1,43 @@
+{
+  "scheme_id": "MH-HOU-002",
+  "scheme_name": "Lok Awas Yojana",
+  "ministry": "Maharashtra Housing and Area Development Authority",
+  "category": "Affordable Housing",
+  "description": "Sub-scheme under MHADA for providing affordable housing to economically weaker sections and low-income groups.",
+  "target_beneficiaries": [
+    "EWS - Economically Weaker Section",
+    "LIG - Low Income Group"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "As per EWS/LIG norms",
+    "gender": "All",
+    "other_conditions": [
+      "Implemented through MHADA regional boards",
+      "Part of MHADA's slum improvement programmes"
+    ]
+  },
+  "required_documents": [
+    "Income certificate",
+    "Aadhaar card",
+    "Residence proof",
+    "Caste certificate (if applicable)"
+  ],
+  "benefits": [
+    "Subsidized housing tenements",
+    "Affordable payment installments"
+  ],
+  "application_process": {
+    "mode": "Through MHADA Regional Boards",
+    "steps": [
+      "Application through notified MHADA schemes",
+      "Lottery-based allotment"
+    ]
+  },
+  "official_website": "https://mhada.gov.in",
+  "languages_supported": ["Marathi", "English", "Hindi"]
+}

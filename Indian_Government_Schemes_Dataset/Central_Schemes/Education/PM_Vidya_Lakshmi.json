@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-EDU-001",
+  "scheme_name": "Pradhan Mantri Vidya Lakshmi Karyakram",
+  "ministry": "Ministry of Finance",
+  "category": "Education Loan",
+  "description": "Single window portal for students to access educational loans from banks and government scholarships.",
+  "target_beneficiaries": ["Students seeking higher education", "Professional course aspirants"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": 16,
+      "max": 35
+    },
+    "income_limit": "Family income ≤ ₹4.5 lakhs for subsidy",
+    "gender": "All",
+    "other_conditions": ["Admission to recognized institution", "Indian nationality", "Course duration minimum 1 year"]
+  },
+  "required_documents": ["Aadhaar card", "Academic marksheets", "Admission letter", "Income certificate", "Co-borrower documents"],
+  "benefits": ["Education loan up to ₹20 lakhs", "Interest subsidy", "Multiple bank options", "Scholarship integration"],
+  "application_process": {
+    "mode": "Online",
+    "steps": ["Register on portal", "Fill application", "Upload documents", "Track status"]
+  },
+  "official_website": "https://www.vidyalakshmi.co.in",
+  "languages_supported": ["Hindi", "English"]
+}

@@ -1,0 +1,26 @@
+{
+  "scheme_id": "PEN-CENT-006",
+  "scheme_name": "Indira Gandhi National Disability Pension Scheme",
+  "ministry": "Ministry of Rural Development",
+  "category": "Disability Welfare",
+  "description": "Monthly pension for persons with severe disabilities living below poverty line.",
+  "target_beneficiaries": ["Persons with disabilities", "BPL families"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 18,
+      "max": 79
+    },
+    "income_limit": "BPL families",
+    "gender": "All",
+    "other_conditions": ["80% or more disability", "Not receiving other pension", "BPL card holder", "Resident of India"]
+  },
+  "required_documents": ["Age proof", "BPL certificate", "Disability certificate", "Ration card", "Bank account details", "Aadhaar card"],
+  "benefits": ["₹300/month (18-79 years)", "₹500/month (80+ years)", "Direct bank transfer"],
+  "application_process": {
+    "mode": "Block Development Office/Gram Panchayat",
+    "steps": ["Get disability certificate", "Apply at block office", "Submit documents", "Verification", "Pension credited"]
+  },
+  "official_website": "https://nsap.nic.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

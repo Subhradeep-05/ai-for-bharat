@@ -1,0 +1,61 @@
+{
+  "scheme_id": "SOC-SEC-001",
+  "scheme_name": "National Social Assistance Programme",
+  "ministry": "Ministry of Rural Development",
+  "category": "Social Security",
+  "description": "Fully funded Centrally Sponsored Scheme introduced on 15 August 1995, extending financial support to individuals living below poverty line across rural and urban areas. Covers old age pension, widow pension, disability pension, and family benefit.",
+  "target_beneficiaries": [
+    "Elderly citizens aged 60+ years",
+    "Widows aged 40-79 years",
+    "Persons with severe/multiple disabilities aged 18-79 years",
+    "Families losing primary breadwinner (aged 18-59 years)",
+    "Senior citizens eligible for pension but not receiving it"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Below Poverty Line families as per SECC data",
+    "gender": "All",
+    "other_conditions": [
+      "Indira Gandhi National Old Age Pension Scheme: Age 60+ years",
+      "Indira Gandhi National Widow Pension Scheme: Age 40-79 years, widow",
+      "Indira Gandhi National Disability Pension Scheme: Age 18-79 years, severe/multiple disability (80% or more)",
+      "National Family Benefit Scheme: Deceased primary breadwinner aged 18-59 years",
+      "Annapurna Scheme: Senior citizen eligible for IGNOAPS but not receiving pension"
+    ]
+  },
+  "required_documents": [
+    "BPL certificate/Ration card",
+    "Age proof",
+    "Husband's death certificate (for widow pension)",
+    "Disability certificate (for disability pension)",
+    "Death certificate of primary breadwinner (for NFBS)",
+    "Bank account details",
+    "Aadhaar card"
+  ],
+  "benefits": [
+    "IGNOAPS: ₹200/month (60-79 years); ₹500/month (80+ years) - Central share",
+    "IGNWPS: ₹300/month (40-79 years); ₹500/month (80+ years) - Central share",
+    "IGNDPS: ₹300/month (18-79 years); ₹500/month (80+ years) - Central share",
+    "NFBS: ₹20,000 lump sum assistance",
+    "Annapurna: 10 kg food grains per month free of cost",
+    "Direct Benefit Transfer mode (94% beneficiaries)",
+    "States/UTs provide top-up ranging from ₹50 to ₹5,700/month"
+  ],
+  "application_process": {
+    "mode": "Offline (Gram Panchayat/Municipality)",
+    "steps": [
+      "Gram Panchayats/Municipalities identify eligible beneficiaries",
+      "Beneficiary submits application to local body",
+      "Verification by Gram Panchayat/Urban Local Body",
+      "Sanction by Block Development Officer",
+      "Pension credited via DBT",
+      "Annual life certification required"
+    ]
+  },
+  "official_website": "https://nsap.nic.in",
+  "languages_supported": ["Hindi", "English"]
+}

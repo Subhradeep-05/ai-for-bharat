@@ -1,0 +1,26 @@
+{
+  "scheme_id": "MH-SOC-001",
+  "scheme_name": "Mahatma Phule Jan Arogya Yojana",
+  "ministry": "Maharashtra Public Health Department",
+  "category": "Health Insurance",
+  "description": "Health insurance scheme providing coverage up to ₹1.5 lakhs for families below poverty line.",
+  "target_beneficiaries": ["Families below poverty line", "Yellow ration card holders"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "BPL families",
+    "gender": "All",
+    "other_conditions": ["Yellow ration card holder", "Resident of Maharashtra"]
+  },
+  "required_documents": ["Ration card", "Aadhaar card", "Income certificate", "Residence proof"],
+  "benefits": ["Health coverage up to ₹1.5 lakhs", "971 medical procedures", "Cashless treatment", "Transportation allowance"],
+  "application_process": {
+    "mode": "Hospitals/Insurance Companies",
+    "steps": ["Check eligibility through website", "Get health card", "Visit empaneled hospital"]
+  },
+  "official_website": "https://www.jeevandayee.gov.in",
+  "languages_supported": ["Marathi", "English", "Hindi"]
+}

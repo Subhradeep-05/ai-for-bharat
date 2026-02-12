@@ -1,0 +1,26 @@
+{
+  "scheme_id": "PEN-CENT-004",
+  "scheme_name": "Indira Gandhi National Old Age Pension Scheme",
+  "ministry": "Ministry of Rural Development",
+  "category": "Social Security",
+  "description": "Non-contributory pension for senior citizens living below poverty line as part of National Social Assistance Programme.",
+  "target_beneficiaries": ["Senior citizens", "Below Poverty Line families"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 60,
+      "max": null
+    },
+    "income_limit": "BPL families",
+    "gender": "All",
+    "other_conditions": ["Resident of India", "No other pension", "BPL card holder"]
+  },
+  "required_documents": ["Age proof", "BPL certificate", "Ration card", "Bank account details", "Aadhaar card"],
+  "benefits": ["₹300/month (60-79 years)", "₹500/month (80+ years)", "Direct bank transfer", "Quartely disbursement"],
+  "application_process": {
+    "mode": "Block Development Office/Gram Panchayat",
+    "steps": ["Apply at block office", "Submit documents", "Verification by BDO", "Pension sanctioned", "Monthly pension credited"]
+  },
+  "official_website": "https://nsap.nic.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

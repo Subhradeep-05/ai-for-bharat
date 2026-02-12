@@ -1,0 +1,43 @@
+{
+  "scheme_id": "UP-EDU-001",
+  "scheme_name": "Swami Vivekananda Yuva Sashaktikaran Yojana",
+  "ministry": "Government of Uttar Pradesh - Higher Education Department",
+  "category": "Digital Empowerment",
+  "description": "Scheme providing free tablets and smartphones to students to bridge the digital divide.",
+  "target_beneficiaries": [
+    "Students in Uttar Pradesh"
+  ],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": [
+      "Nearly 50 lakh tablets and smartphones already distributed",
+      "₹2,374 crore allocated for free tablets and smartphones",
+      "Also includes scooters for girl students: ₹400 crore allocation"
+    ]
+  },
+  "required_documents": [
+    "Student ID",
+    "Institution enrollment proof",
+    "Aadhaar card"
+  ],
+  "benefits": [
+    "Free tablets and smartphones to students",
+    "Digital access and skill development"
+  ],
+  "application_process": {
+    "mode": "Through educational institutions",
+    "steps": [
+      "Distribution through colleges and universities",
+      "Institution submits eligible student list",
+      "Devices provided to students"
+    ]
+  },
+  "official_website": "https://highereducation.up.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

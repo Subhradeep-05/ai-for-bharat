@@ -1,0 +1,26 @@
+{
+  "scheme_id": "SCST-EDU-006",
+  "scheme_name": "National Overseas Scholarship for SC Students",
+  "ministry": "Ministry of Social Justice and Empowerment",
+  "category": "International Education",
+  "description": "Scholarship for SC students to pursue higher education abroad in master's and Ph.D programs.",
+  "target_beneficiaries": ["SC students", "Economically weaker SC families"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": null,
+      "max": 35
+    },
+    "income_limit": "Annual family income ≤ ₹6 lakhs",
+    "gender": "All",
+    "other_conditions": ["Belongs to SC category", "Minimum 60% marks in graduation", "Admission to foreign university", "Not more than 2 children from same family"]
+  },
+  "required_documents": ["SC certificate", "Income certificate", "Educational certificates", "Admission letter from foreign university", "TOEFL/IELTS/GRE scores", "Passport", "Aadhaar card"],
+  "benefits": ["Tuition fee up to $15,400", "Maintenance allowance $15,400", "Air travel expenses", "Equipment allowance", "Contingency allowance"],
+  "application_process": {
+    "mode": "Online",
+    "steps": ["Register on scholarship portal", "Submit application", "Interview by selection committee", "Scholarship award", "Apply for visa"]
+  },
+  "official_website": "https://socialjustice.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

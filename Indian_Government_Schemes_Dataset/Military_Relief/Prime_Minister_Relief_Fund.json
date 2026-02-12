@@ -1,0 +1,26 @@
+{
+  "scheme_id": "MIL-REL-001",
+  "scheme_name": "Prime Minister's National Relief Fund",
+  "ministry": "Prime Minister's Office",
+  "category": "Emergency Relief",
+  "description": "Emergency relief fund for families of martyrs, natural calamity victims, and critical medical treatment.",
+  "target_beneficiaries": ["Families of Armed Forces martyrs", "Natural calamity victims", "Serious illness patients"],
+  "eligibility": {
+    "occupation": ["Defence personnel", "Civilian"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No specific limit",
+    "gender": "All",
+    "other_conditions": ["Death during military operations", "Natural disaster affected", "Critical illness requiring expensive treatment"]
+  },
+  "required_documents": ["Death certificate", "Service certificate", "Medical reports", "Identity proof", "Bank account details"],
+  "benefits": ["Ex-gratia payment", "Medical treatment assistance", "Natural disaster relief", "Educational assistance"],
+  "application_process": {
+    "mode": "Through district administration/Defence authorities",
+    "steps": ["Submit application through proper channel", "Verification by authorities", "Approval by PMO", "Fund disbursed"]
+  },
+  "official_website": "https://pmnrf.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

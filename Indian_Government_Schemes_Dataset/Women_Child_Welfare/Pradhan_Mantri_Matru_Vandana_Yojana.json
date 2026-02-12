@@ -1,0 +1,66 @@
+{
+  "scheme_id": "CENT-WCD-005",
+  "scheme_name": "Pradhan Mantri Matru Vandana Yojana",
+  "ministry": "Ministry of Women and Child Development",
+  "category": "Maternity Benefits",
+  "description": "Cash incentive scheme for pregnant women and lactating mothers to compensate for wage loss and promote proper health, nutrition, and immunization.",
+  "target_beneficiaries": [
+    "Pregnant women and lactating mothers",
+    "Women from economically weaker sections",
+    "SC/ST women",
+    "Women with 40%+ disability",
+    "BPL families",
+    "PMJAY beneficiaries",
+    "MGNREGA job card holders",
+    "PM-KISAN beneficiaries",
+    "Anganwadi workers and helpers",
+    "ASHA workers"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 19,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹8 lakhs (for general category)",
+    "gender": "Female",
+    "other_conditions": [
+      "First living child: Any gender - eligible for ₹5,000",
+      "Second living child: Only if girl child - eligible for ₹6,000 (one-time)",
+      "Excludes women in regular employment with Central/State Government/PSUs receiving maternity benefits",
+      "Must apply within 730 days from LMP (first child) or 460 days from birth (third installment)",
+      "Miscarriage/stillbirth: Can claim remaining installments in future pregnancy",
+      "Infant mortality: Not eligible if all installments already received"
+    ]
+  },
+  "required_documents": [
+    "Aadhaar card (beneficiary mandatory)",
+    "MCP Card (Mother and Child Protection Card)",
+    "Bank/Post Office passbook (DBT enabled, joint accounts not accepted)",
+    "Child birth registration certificate",
+    "Immunization record (BCG, OPV, DPT, Hepatitis-B)",
+    "Husband's Aadhaar (recommended for verification)"
+  ],
+  "benefits": [
+    "First child: ₹5,000 total (₹1,000 + ₹2,000 + ₹2,000 in three installments)",
+    "OR First child: ₹5,000 total (₹3,000 + ₹2,000 in two installments - state variation)",
+    "Second girl child: ₹6,000 lump sum",
+    "Convergence with JSY: Additional benefits up to ₹6,000 total",
+    "Direct Benefit Transfer to woman's bank account",
+    "Over 4 crore beneficiaries paid > ₹20,000 crore since 2017"
+  ],
+  "application_process": {
+    "mode": "Online/Offline",
+    "steps": [
+      "Visit official portal https://pmmvy.wcd.gov.in or nearest Anganwadi Centre",
+      "Register pregnancy within 150 days from Last Menstrual Period",
+      "Submit Form 1-A with Aadhaar, MCP card, bank details",
+      "Receive first installment (₹1,000/₹3,000) after pregnancy registration and one ANC",
+      "Claim second installment (₹2,000) post 180 days of LMP with Form 1-B",
+      "Claim third installment (₹2,000) after birth registration and complete primary immunization",
+      "For second girl child: One-time ₹6,000 after birth registration and immunization"
+    ]
+  },
+  "official_website": "https://pmmvy.wcd.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

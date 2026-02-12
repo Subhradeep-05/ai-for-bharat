@@ -1,0 +1,26 @@
+{
+  "scheme_id": "PEN-CENT-005",
+  "scheme_name": "Indira Gandhi National Widow Pension Scheme",
+  "ministry": "Ministry of Rural Development",
+  "category": "Social Security",
+  "description": "Monthly pension for widows living below poverty line as part of National Social Assistance Programme.",
+  "target_beneficiaries": ["Widows", "BPL families"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 40,
+      "max": 59
+    },
+    "income_limit": "BPL families",
+    "gender": "Female",
+    "other_conditions": ["Widow", "Not receiving other pension", "BPL card holder", "Resident of India"]
+  },
+  "required_documents": ["Age proof", "BPL certificate", "Husband's death certificate", "Ration card", "Bank account details", "Aadhaar card"],
+  "benefits": ["₹300/month", "Direct bank transfer", "Quarterly disbursement"],
+  "application_process": {
+    "mode": "Block Development Office/Gram Panchayat",
+    "steps": ["Apply at block office", "Submit documents", "Verification by BDO", "Pension sanctioned"]
+  },
+  "official_website": "https://nsap.nic.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

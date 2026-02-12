@@ -1,0 +1,49 @@
+{
+  "scheme_id": "KA-WCD-001",
+  "scheme_name": "Gruhalakshmi Scheme",
+  "ministry": "Government of Karnataka - Women and Child Development Department",
+  "category": "Women Empowerment",
+  "description": "Monthly financial assistance of ₹2,000 to woman head of the family for economic independence.",
+  "target_beneficiaries": [
+    "Women heads of families",
+    "Families from both BPL and APL categories"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "Female",
+    "other_conditions": [
+      "Applicant must be declared as woman head of the family",
+      "Husband or woman head should NOT be GST or income taxpayers",
+      "95% low-income women beneficiaries reported better nutrition",
+      "90% reported improved healthcare access",
+      "84% reported reduced financial stress"
+    ]
+  },
+  "required_documents": [
+    "Aadhaar card",
+    "Bank account number",
+    "Declaration of woman head of family",
+    "Income tax/GST non-payer declaration"
+  ],
+  "benefits": [
+    "₹2,000 per month direct cash transfer",
+    "Financial independence for women"
+  ],
+  "application_process": {
+    "mode": "Online",
+    "steps": [
+      "Visit Seva Sindhu Portal",
+      "Fill online application form",
+      "Declare woman head of family",
+      "Submit bank account and Aadhaar details",
+      "Verification and approval"
+    ]
+  },
+  "official_website": "https://sevasindhu.karnataka.gov.in",
+  "languages_supported": ["Kannada", "English"]
+}

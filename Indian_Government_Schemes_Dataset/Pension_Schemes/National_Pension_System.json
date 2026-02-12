@@ -1,0 +1,26 @@
+{
+  "scheme_id": "PEN-CENT-001",
+  "scheme_name": "National Pension System",
+  "ministry": "Ministry of Finance",
+  "category": "Retirement Planning",
+  "description": "Voluntary defined contribution pension system for government employees and all citizens of India.",
+  "target_beneficiaries": ["All Indian citizens", "Government employees", "Private sector employees", "Self-employed"],
+  "eligibility": {
+    "occupation": ["All occupations"],
+    "age_range": {
+      "min": 18,
+      "max": 70
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Indian citizen", "Valid KYC documents", "Bank account", "Exit at age 60"]
+  },
+  "required_documents": ["Aadhaar card", "PAN card", "Bank account details", "Passport size photo"],
+  "benefits": ["Pension corpus accumulation", "Tax benefits", "Partial withdrawal allowed", "Flexible contribution", "Returns based on market-linked investments"],
+  "application_process": {
+    "mode": "Online/Through banks",
+    "steps": ["Register on CRA website", "Get PRAN card", "Contribute to NPS account", "Choose pension fund manager", "Withdraw at retirement"]
+  },
+  "official_website": "https://www.npscra.nsdl.co.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

@@ -1,0 +1,59 @@
+{
+  "scheme_id": "INF-URB-002",
+  "scheme_name": "Smart Cities Mission",
+  "ministry": "Ministry of Housing and Urban Affairs",
+  "category": "Urban Infrastructure",
+  "description": "Urban renewal mission aimed at developing 100 cities through area-based retrofitting, redevelopment, and pan-city solutions to enhance quality of life and provide sustainable urban environment.",
+  "target_beneficiaries": [
+    "Residents of 100 selected smart cities",
+    "Urban commuters",
+    "Tourists and pilgrims",
+    "Citizens requiring digital governance services"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No individual income limit (City-based selection)",
+    "gender": "All",
+    "other_conditions": [
+      "Cities selected through competition based on Smart City Proposals",
+      "Each State shortlists smart city aspirants",
+      "Emphasis on citizen participation in planning",
+      "Fellows appointed must be below 35 years of age with minimum 60% marks from premier institutions"
+    ]
+  },
+  "required_documents": [
+    "Smart City Proposal",
+    "Citizen engagement documentation",
+    "Feasibility reports for retrofitting/redevelopment/pan-city initiatives"
+  ],
+  "benefits": [
+    "Area-based development: Retrofitting and redevelopment of city sectors",
+    "Heritage conservation and beautification (e.g., Ujjain ghats and temples)",
+    "Integrated Traffic Management Systems",
+    "Sensor-based solid waste collection systems",
+    "Smart water management with SCADA systems",
+    "E-governance and citizen service portals",
+    "Integrated Command and Control Centers",
+    "Public Wi-Fi zones in tourist areas",
+    "Smart roads and multilevel parking",
+    "Employment generation through project implementation"
+  ],
+  "application_process": {
+    "mode": "City/State Government driven",
+    "steps": [
+      "State Government shortlists potential cities",
+      "City prepares Smart City Proposal with citizen participation",
+      "Proposal evaluated by Central Government",
+      "Selected cities receive funding",
+      "Implementation through Special Purpose Vehicle",
+      "Tenders invited for smart roads, ICCCs, IT solutions",
+      "Smart Cities Fellows (under 35 years) appointed for project support"
+    ]
+  },
+  "official_website": "https://smartcities.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

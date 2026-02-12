@@ -1,0 +1,26 @@
+{
+  "scheme_id": "KA-FD-001",
+  "scheme_name": "Anna Bhagya",
+  "ministry": "Karnataka Food and Civil Supplies Department",
+  "category": "Food Security",
+  "description": "Provides free rice and other food grains to below poverty line families.",
+  "target_beneficiaries": ["Below Poverty Line families", "Antyodaya card holders"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "BPL criteria",
+    "gender": "All",
+    "other_conditions": ["Must have BPL/Antyodaya card", "Resident of Karnataka"]
+  },
+  "required_documents": ["BPL/Antyodaya card", "Aadhaar card"],
+  "benefits": ["7 kg rice per person", "Additional food grains", "Free for BPL families"],
+  "application_process": {
+    "mode": "Ration Shops",
+    "steps": ["Possess BPL card", "Visit fair price shop", "Collect grains with biometric authentication"]
+  },
+  "official_website": "https://ahara.kar.nic.in",
+  "languages_supported": ["Kannada", "English"]
+}

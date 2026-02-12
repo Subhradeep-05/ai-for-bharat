@@ -1,0 +1,55 @@
+{
+  "scheme_id": "MH-HOU-001",
+  "scheme_name": "MHADA Housing Schemes",
+  "ministry": "Maharashtra Housing and Area Development Authority",
+  "category": "Affordable Housing",
+  "description": "Construction and allotment of residential tenements and plots across various income categories through Maharashtra Housing and Area Development Authority.",
+  "target_beneficiaries": [
+    "EWS - Economically Weaker Section",
+    "LIG - Low Income Group",
+    "MIG - Middle Income Group",
+    "HIG - Higher Income Group"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "Category-specific income criteria apply",
+    "gender": "All",
+    "other_conditions": [
+      "Schemes include: Subsidised Industrial Housing Scheme (SIHS), EWS, LIG, MIG, HIG tenements and plots",
+      "Also includes Lok Awas Yojana",
+      "Includes Valmiki Ambedkar Awas Yojana",
+      "Allotment through MHADA regional boards",
+      "Active projects in Satpur, Nashik, Panchawati, Deolali, Amrutdham, Mhasrul, Pathardi, Adgaon, Chunchale, Malegaon, Ahmadnagar, Bhusawal, Jalgaon, Manmad, Yeola, Dhule, Nandurbar, Chalisgaon, Amalner"
+    ]
+  },
+  "required_documents": [
+    "Aadhaar card",
+    "Income certificate",
+    "Residence proof",
+    "Application form with scheme-specific fee"
+  ],
+  "benefits": [
+    "Construction of affordable tenements and development of plots",
+    "Allotment of residential and non-residential tenements",
+    "Conveyance of property",
+    "Transit tenements for occupants of old/cessed buildings",
+    "Reconstruction tenements",
+    "Maintenance of common infrastructural services"
+  ],
+  "application_process": {
+    "mode": "Online/Offline through MHADA Regional Boards",
+    "steps": [
+      "Check MHADA website for scheme announcements",
+      "Submit application to respective Regional Board",
+      "Participate in lottery system",
+      "Pay hire purchase installments",
+      "Possession after completion"
+    ]
+  },
+  "official_website": "https://mhada.gov.in",
+  "languages_supported": ["Marathi", "English", "Hindi"]
+}

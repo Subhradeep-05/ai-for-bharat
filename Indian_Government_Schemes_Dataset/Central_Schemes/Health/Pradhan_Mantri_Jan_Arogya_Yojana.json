@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-HEA-002",
+  "scheme_name": "Pradhan Mantri Jan Arogya Yojana",
+  "ministry": "Ministry of Health and Family Welfare",
+  "category": "Health Insurance",
+  "description": "Health insurance component of Ayushman Bharat providing financial protection against catastrophic health expenditures.",
+  "target_beneficiaries": ["10.74 crore poor and vulnerable families", "Approx 50 crore beneficiaries"],
+  "eligibility": {
+    "occupation": ["All occupations from eligible families"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Automatic inclusion based on SECC 2011 criteria",
+    "gender": "All",
+    "other_conditions": ["Families without adult members 16-59", "Destitute/living on alms", "Manual scavenger families", "Primitive tribal groups"]
+  },
+  "required_documents": ["Aadhaar card (preferred)", "Ration card", "Any government ID proof"],
+  "benefits": ["Cashless hospitalization", "Pre and post hospitalization expenses", "Transport allowance", "Day care procedures"],
+  "application_process": {
+    "mode": "Online/Helpline/Hospital",
+    "steps": ["Check name in beneficiary list", "Verify through helpline 14555", "Get treatment at empaneled hospital"]
+  },
+  "official_website": "https://www.pmjay.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

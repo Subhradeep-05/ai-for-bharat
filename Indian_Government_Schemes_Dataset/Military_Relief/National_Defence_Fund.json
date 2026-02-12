@@ -1,0 +1,26 @@
+{
+  "scheme_id": "MIL-REL-003",
+  "scheme_name": "National Defence Fund",
+  "ministry": "Prime Minister's Office",
+  "category": "Defence Welfare",
+  "description": "Fund for welfare of Armed Forces personnel and their dependents, particularly those affected during wars and conflicts.",
+  "target_beneficiaries": ["Armed Forces personnel", "Families of war widows", "Children of martyrs", "Disabled soldiers"],
+  "eligibility": {
+    "occupation": ["Defence personnel"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No specific limit",
+    "gender": "All",
+    "other_conditions": ["Killed/disabled during war/peace operations", "Serving in Armed Forces", "Medical treatment requirements"]
+  },
+  "required_documents": ["Service certificate", "Death certificate", "Disability certificate", "Medical reports", "Bank account details"],
+  "benefits": ["Financial assistance to widows", "Education of children", "Medical treatment", "Rehabilitation of disabled"],
+  "application_process": {
+    "mode": "Through Armed Forces authorities",
+    "steps": ["Submit application through unit", "Verification by records office", "Recommendation by HQ", "Sanction by PMO"]
+  },
+  "official_website": "https://pmnrf.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

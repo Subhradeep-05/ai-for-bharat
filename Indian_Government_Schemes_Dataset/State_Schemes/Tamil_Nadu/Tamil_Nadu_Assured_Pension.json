@@ -1,0 +1,46 @@
+{
+  "scheme_id": "TN-PEN-001",
+  "scheme_name": "Tamil Nadu Assured Pension Scheme",
+  "ministry": "Government of Tamil Nadu - Finance Department",
+  "category": "Pension",
+  "description": "Alternative pension scheme for government employees and teachers who joined under the contributory pension system, guaranteeing minimum pension.",
+  "target_beneficiaries": [
+    "Government employees",
+    "Teachers",
+    "Pensioners under contributory pension system"
+  ],
+  "eligibility": {
+    "occupation": ["Government employee", "Teacher"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": [
+      "Announced on 3 January 2026",
+      "Alternative to Old Pension Scheme (OPS)",
+      "Fulfills 2021 electoral promise",
+      "Expected to benefit over 6 lakh government employees and pensioners"
+    ]
+  },
+  "required_documents": [
+    "Service certificate",
+    "Employee ID",
+    "Pension account details"
+  ],
+  "benefits": [
+    "Guaranteed minimum pension",
+    "Pension security for employees under contributory system"
+  ],
+  "application_process": {
+    "mode": "Through respective departments",
+    "steps": [
+      "Notification by Finance Department",
+      "Enrollment through employer",
+      "Pension disbursement from state treasury"
+    ]
+  },
+  "official_website": "https://www.tn.gov.in",
+  "languages_supported": ["Tamil", "English"]
+}

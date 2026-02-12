@@ -1,0 +1,26 @@
+{
+  "scheme_id": "SCST-EDU-002",
+  "scheme_name": "National Fellowship for Scheduled Caste Students",
+  "ministry": "Ministry of Social Justice and Empowerment",
+  "category": "Higher Education",
+  "description": "Fellowship for SC students pursuing M.Phil and Ph.D courses in universities and research institutions.",
+  "target_beneficiaries": ["SC students", "Research scholars"],
+  "eligibility": {
+    "occupation": ["Student", "Research Scholar"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Belongs to SC category", "Admitted to full-time M.Phil/Ph.D", "Through UGC-NET or entrance test", "No other fellowship"]
+  },
+  "required_documents": ["SC certificate", "Educational certificates", "Admission proof", "NET/entrance scorecard", "Research proposal", "Bank account details"],
+  "benefits": ["Monthly fellowship ₹31,000 (JRF)", "₹35,000 (SRF)", "Contingency grant", "Escort/reader allowance for disabled", "HRA"],
+  "application_process": {
+    "mode": "Online through UGC",
+    "steps": ["Register on UGC portal", "Submit application", "Selection by committee", "Fellowship award"]
+  },
+  "official_website": "https://www.ugc.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

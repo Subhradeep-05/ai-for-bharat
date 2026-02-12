@@ -1,0 +1,42 @@
+{
+  "scheme_id": "UP-HEA-001",
+  "scheme_name": "Janani Shishi Suraksha Karyakram",
+  "ministry": "Government of Uttar Pradesh - Health Department",
+  "category": "Maternal Health",
+  "description": "Scheme guaranteeing cashless deliveries and maternal healthcare services.",
+  "target_beneficiaries": [
+    "Pregnant women",
+    "Newborn children"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "Female",
+    "other_conditions": [
+      "Cashless deliveries guaranteed",
+      "Announced in UP Budget 2026-27"
+    ]
+  },
+  "required_documents": [
+    "MCP card",
+    "Aadhaar card",
+    "Bank account details"
+  ],
+  "benefits": [
+    "Cashless institutional delivery",
+    "Maternal healthcare services"
+  ],
+  "application_process": {
+    "mode": "Through government hospitals",
+    "steps": [
+      "Register pregnancy at government hospital",
+      "Receive cashless delivery services"
+    ]
+  },
+  "official_website": "https://health.up.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

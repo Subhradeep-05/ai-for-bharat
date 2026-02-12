@@ -1,0 +1,26 @@
+{
+  "scheme_id": "SCST-EDU-004",
+  "scheme_name": "Rajiv Gandhi National Fellowship for Scheduled Tribe Students",
+  "ministry": "Ministry of Tribal Affairs",
+  "category": "Higher Education",
+  "description": "Fellowship for ST students pursuing M.Phil and Ph.D courses in sciences, humanities and social sciences.",
+  "target_beneficiaries": ["ST students", "Research scholars in higher education"],
+  "eligibility": {
+    "occupation": ["Student", "Research Scholar"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Belongs to ST category", "Admitted to full-time M.Phil/Ph.D", "Through UGC-NET or equivalent", "10+2+3 pattern education"]
+  },
+  "required_documents": ["ST certificate", "Educational certificates", "Admission proof", "NET/JRF certificate", "Bank account details", "Aadhaar card"],
+  "benefits": ["Monthly fellowship ₹31,000", "Contingency grant ₹10,000", "Departmental assistance", "Escort/reader allowance", "HRA"],
+  "application_process": {
+    "mode": "Online through UGC",
+    "steps": ["Register on UGC portal", "Submit application", "University verification", "Selection by committee", "Fellowship disbursement"]
+  },
+  "official_website": "https://www.ugc.ac.in/rgnf",
+  "languages_supported": ["Hindi", "English"]
+}

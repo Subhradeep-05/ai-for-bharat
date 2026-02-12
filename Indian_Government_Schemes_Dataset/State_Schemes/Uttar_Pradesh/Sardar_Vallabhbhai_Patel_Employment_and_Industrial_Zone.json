@@ -1,0 +1,44 @@
+{
+  "scheme_id": "UP-IND-001",
+  "scheme_name": "Sardar Vallabhbhai Patel Employment and Industrial Zone",
+  "ministry": "Government of Uttar Pradesh - MSME Department",
+  "category": "Employment & Industry",
+  "description": "New scheme to promote MSMEs and create employment through development of industrial zones.",
+  "target_beneficiaries": [
+    "MSME entrepreneurs",
+    "Youth seeking employment"
+  ],
+  "eligibility": {
+    "occupation": ["Entrepreneur"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": [
+      "Announced in UP Budget 2026-27",
+      "Part of MSME promotion initiative",
+      "₹575 crore allocation"
+    ]
+  },
+  "required_documents": [
+    "Business plan",
+    "Identity proof",
+    "Address proof"
+  ],
+  "benefits": [
+    "Industrial zone development",
+    "Employment generation",
+    "MSME promotion"
+  ],
+  "application_process": {
+    "mode": "Through MSME Department",
+    "steps": [
+      "Scheme launch notification awaited",
+      "Application through designated portal"
+    ]
+  },
+  "official_website": "https://msme.up.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

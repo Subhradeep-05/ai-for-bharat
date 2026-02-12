@@ -1,0 +1,47 @@
+{
+  "scheme_id": "UP-ENT-001",
+  "scheme_name": "Mukhyamantri Yuva Udyami Vikas Abhiyan",
+  "ministry": "Government of Uttar Pradesh - MSME Department",
+  "category": "Youth Entrepreneurship",
+  "description": "Scheme to establish one lakh micro-enterprises annually with collateral-free and interest-free loans to young entrepreneurs.",
+  "target_beneficiaries": [
+    "Young entrepreneurs",
+    "Youth seeking self-employment"
+  ],
+  "eligibility": {
+    "occupation": ["Entrepreneur"],
+    "age_range": {
+      "min": null,
+      "max": 35
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": [
+      "Target: 1 lakh new micro-enterprises annually",
+      "Collateral-free loans",
+      "Interest-free loans",
+      "₹1,000 crore allocation",
+      "Scope for expansion if needed"
+    ]
+  },
+  "required_documents": [
+    "Business proposal",
+    "Educational qualification proof",
+    "Aadhaar card"
+  ],
+  "benefits": [
+    "Collateral-free loans",
+    "Interest-free loans",
+    "Self-employment opportunity"
+  ],
+  "application_process": {
+    "mode": "Through MSME Department",
+    "steps": [
+      "Await detailed scheme guidelines",
+      "Submit business proposal",
+      "Loan disbursement after approval"
+    ]
+  },
+  "official_website": "https://msme.up.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

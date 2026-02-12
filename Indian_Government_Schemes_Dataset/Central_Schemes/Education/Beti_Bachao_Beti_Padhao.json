@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-EDU-003",
+  "scheme_name": "Beti Bachao Beti Padhao",
+  "ministry": "Ministry of Women and Child Development",
+  "category": "Girl Child Education",
+  "description": "Comprehensive scheme to address declining child sex ratio and promote education of girl children.",
+  "target_beneficiaries": ["Girl children", "Female students", "Pregnant women"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 0,
+      "max": 18
+    },
+    "income_limit": "None",
+    "gender": "Female",
+    "other_conditions": ["Indian nationality", "Focus on districts with low child sex ratio"]
+  },
+  "required_documents": ["Birth certificate", "Aadhaar card", "School admission proof"],
+  "benefits": ["Awareness campaigns", "Financial incentives for education", "School enrollment support", "Health checkups"],
+  "application_process": {
+    "mode": "Through district administration",
+    "steps": ["Contact district women and child development officer", "Register for programs", "Participate in awareness activities"]
+  },
+  "official_website": "https://wcd.nic.in/bbbp-schemes",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

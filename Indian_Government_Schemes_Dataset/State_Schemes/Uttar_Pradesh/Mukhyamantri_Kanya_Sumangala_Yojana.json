@@ -1,0 +1,26 @@
+{
+  "scheme_id": "UP-WCD-001",
+  "scheme_name": "Mukhyamantri Kanya Sumangala Yojana",
+  "ministry": "Uttar Pradesh Women and Child Development Department",
+  "category": "Girl Child Welfare",
+  "description": "Financial assistance scheme for girl children from birth to graduation to improve sex ratio and promote education.",
+  "target_beneficiaries": ["Girl children", "Families with annual income ≤ ₹3 lakhs"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 0,
+      "max": 18
+    },
+    "income_limit": "Annual family income ≤ ₹3 lakhs",
+    "gender": "Female",
+    "other_conditions": ["One or two girl children in family", "Resident of Uttar Pradesh", "Bank account in girl's name"]
+  },
+  "required_documents": ["Birth certificate", "Income certificate", "Residence proof", "Bank account details", "Aadhaar card"],
+  "benefits": ["₹15,000 in six installments", "At birth: ₹2,000", "Class 1 admission: ₹1,000", "Class 6 admission: ₹2,000", "Class 9 admission: ₹2,000", "10th pass: ₹3,000", "12th pass: ₹5,000"],
+  "application_process": {
+    "mode": "Online/Anganwadi Centers",
+    "steps": ["Register on portal", "Submit documents", "Verification by district officer", "Installments disbursed"]
+  },
+  "official_website": "https://mksy.up.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

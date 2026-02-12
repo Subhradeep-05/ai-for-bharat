@@ -1,0 +1,26 @@
+{
+  "scheme_id": "WB-MIN-001",
+  "scheme_name": "Aikyashree Scholarship Scheme",
+  "ministry": "West Bengal Minority Affairs Department",
+  "category": "Minority Education",
+  "description": "Scholarship scheme for minority community students from class XI to post-graduation level.",
+  "target_beneficiaries": ["Minority community students", "Economically backward minority students"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹2.5 lakhs",
+    "gender": "All",
+    "other_conditions": ["Belongs to minority community (Muslim, Christian, Sikh, Buddhist, Parsi, Jain)", "Studying in recognized institution", "Minimum 50% marks"]
+  },
+  "required_documents": ["Minority community certificate", "Income certificate", "Educational certificates", "Bank account details", "Aadhaar card"],
+  "benefits": ["Maintenance allowance", "Admission fee", "Tuition fee", "Other allowances"],
+  "application_process": {
+    "mode": "Online",
+    "steps": ["Register on portal", "Fill application", "Upload documents", "Get scholarship disbursed"]
+  },
+  "official_website": "https://wbmdfc.org",
+  "languages_supported": ["Bengali", "English", "Urdu"]
+}

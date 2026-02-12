@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-AGR-005",
+  "scheme_name": "Pradhan Mantri Krishi Sinchai Yojana",
+  "ministry": "Ministry of Agriculture and Farmers Welfare",
+  "category": "Irrigation",
+  "description": "Ensuring access to irrigation for every farm and improving water use efficiency.",
+  "target_beneficiaries": ["Farmers", "Agricultural communities"],
+  "eligibility": {
+    "occupation": ["Farmer"],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "None",
+    "gender": "All",
+    "other_conditions": ["Land should be cultivable", "Should have water source access"]
+  },
+  "required_documents": ["Land records", "Aadhaar card", "Project proposal", "Water availability certificate"],
+  "benefits": ["Micro-irrigation support", "Drip/sprinkler systems", "Water conservation structures", "Financial assistance"],
+  "application_process": {
+    "mode": "State Agriculture Departments",
+    "steps": ["Contact agriculture office", "Submit application", "Technical evaluation", "Approval and implementation"]
+  },
+  "official_website": "https://pmksy.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

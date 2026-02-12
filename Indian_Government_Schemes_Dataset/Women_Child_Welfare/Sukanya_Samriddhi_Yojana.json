@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-WCD-002",
+  "scheme_name": "Sukanya Samriddhi Yojana",
+  "ministry": "Ministry of Finance",
+  "category": "Girl Child Savings",
+  "description": "Small deposit scheme for girl child to meet her education and marriage expenses.",
+  "target_beneficiaries": ["Girl children", "Parents of girl child"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 0,
+      "max": 10
+    },
+    "income_limit": "No income limit",
+    "gender": "Female",
+    "other_conditions": ["Parents/guardian can open account", "One account per girl", "Maximum two girls per family", "Account operated till age 21"]
+  },
+  "required_documents": ["Girl's birth certificate", "Parent's Aadhaar card", "Address proof", "Passport size photo"],
+  "benefits": ["Tax benefits under Section 80C", "Interest rate 7.6% per annum", "Partial withdrawal after 18 years", "Maturity at age 21"],
+  "application_process": {
+    "mode": "Post offices/Banks",
+    "steps": ["Visit bank or post office", "Fill SSY form", "Submit girl's birth certificate", "Make initial deposit", "Account opened"]
+  },
+  "official_website": "https://www.nsiindia.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

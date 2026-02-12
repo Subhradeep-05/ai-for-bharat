@@ -1,0 +1,26 @@
+{
+  "scheme_id": "PEN-CENT-003",
+  "scheme_name": "Pradhan Mantri Vaya Vandana Yojana",
+  "ministry": "Ministry of Finance",
+  "category": "Senior Citizen Pension",
+  "description": "Pension scheme for senior citizens providing assured pension with guaranteed returns.",
+  "target_beneficiaries": ["Senior citizens aged 60 years and above"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 60,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Indian citizen", "Age 60+", "Maximum investment ₹15 lakhs per senior citizen"]
+  },
+  "required_documents": ["Age proof", "Identity proof", "Address proof", "PAN card", "Bank account details"],
+  "benefits": ["Assured pension", "Guaranteed returns 8% per annum", "10-year policy term", "Tax benefits under Section 80C", "Death benefit"],
+  "application_process": {
+    "mode": "Through LIC offices/Banks",
+    "steps": ["Visit LIC branch", "Submit application", "Pay investment amount", "Receive pension certificate", "Start pension"]
+  },
+  "official_website": "https://licindia.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

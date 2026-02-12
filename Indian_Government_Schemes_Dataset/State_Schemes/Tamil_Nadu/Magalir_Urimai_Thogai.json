@@ -1,0 +1,41 @@
+{
+  "scheme_id": "TN-WCD-001",
+  "scheme_name": "Magalir Urimai Thogai",
+  "ministry": "Government of Tamil Nadu - Women and Child Development Department",
+  "category": "Women Empowerment",
+  "description": "Monthly financial assistance to women from rice ration card-holding families.",
+  "target_beneficiaries": [
+    "Women from rice ration card-holding households"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Rice ration card holders",
+    "gender": "Female",
+    "other_conditions": [
+      "Current benefit: ₹1,000 per month",
+      "Government considering upward revision closer to 2026 elections"
+    ]
+  },
+  "required_documents": [
+    "Rice ration card",
+    "Aadhaar card",
+    "Bank account details"
+  ],
+  "benefits": [
+    "₹1,000 per month financial assistance",
+    "Direct Benefit Transfer"
+  ],
+  "application_process": {
+    "mode": "Through Public Distribution System",
+    "steps": [
+      "Eligible women identified through ration card database",
+      "Direct transfer to bank account"
+    ]
+  },
+  "official_website": "https://www.tn.gov.in",
+  "languages_supported": ["Tamil", "English"]
+}

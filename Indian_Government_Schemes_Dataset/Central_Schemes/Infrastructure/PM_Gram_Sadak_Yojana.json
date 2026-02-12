@@ -1,0 +1,52 @@
+{
+  "scheme_id": "INF-RUR-001",
+  "scheme_name": "Pradhan Mantri Gram Sadak Yojana",
+  "ministry": "Ministry of Rural Development",
+  "category": "Rural Infrastructure",
+  "description": "Nationwide scheme providing all-weather road connectivity to unconnected rural habitations. PMGSY-IV (2024-2029) aims to connect 25,000 new eligible habitations.",
+  "target_beneficiaries": [
+    "Rural habitations lacking all-weather road connectivity",
+    "Residents of hill states, tribal areas, desert areas, and LWE-affected districts"
+  ],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit (habitation-based scheme)",
+    "gender": "All",
+    "other_conditions": [
+      "Habitation must be unconnected with all-weather road",
+      "Plain areas: Population ≥ 500 (Census 2011)",
+      "North-Eastern/Hill States/UTs/Schedule V Areas/Aspirational Districts: Population ≥ 250",
+      "Left Wing Extremism (LWE) affected areas: Population ≥ 100",
+      "Contractors bidding for projects must be Class-A and above with relevant experience in hill cutting/hill road construction"
+    ]
+  },
+  "required_documents": [
+    "Gram Sabha resolution",
+    "Habitation population certificate",
+    "Land availability certificate",
+    "Detailed Project Report (DPR)"
+  ],
+  "benefits": [
+    "Construction of 62,500 km of all-weather roads under PMGSY-IV",
+    "Construction of bridges along road alignments",
+    "5-year initial maintenance contract included",
+    "Vehicle Tracking System (VTS)/GPS installation on all construction equipment",
+    "Access to markets, education, and healthcare"
+  ],
+  "application_process": {
+    "mode": "Institutional (Gram Panchayat/State Government)",
+    "steps": [
+      "Habitation proposed by Gram Panchayat",
+      "State Government finalizes proposals and sanctions projects",
+      "Contractors bid through OMMS portal (http://omms.nic.in)",
+      "State Rural Roads Development Agency implements construction",
+      "Monitoring through eMARG application"
+    ]
+  },
+  "official_website": "https://pmgsy.nic.in",
+  "languages_supported": ["Hindi", "English"]
+}

@@ -1,0 +1,26 @@
+{
+  "scheme_id": "SCST-EDU-007",
+  "scheme_name": "Top Class Education for ST Students",
+  "ministry": "Ministry of Tribal Affairs",
+  "category": "Higher Education",
+  "description": "Scholarship for ST students to pursue education in top-ranked institutions like IITs, IIMs, NITs, etc.",
+  "target_beneficiaries": ["ST students", "Meritorious tribal students"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "Annual family income ≤ ₹6 lakhs",
+    "gender": "All",
+    "other_conditions": ["Belongs to ST category", "Admission to notified institutions", "Full-time courses only", "Not more than 2 siblings availing scholarship"]
+  },
+  "required_documents": ["ST certificate", "Income certificate", "Admission proof", "Fee receipt", "Previous year marksheet", "Bank account details"],
+  "benefits": ["Full tuition fee reimbursement", "Hostel fee reimbursement", "Books and stationery allowance", "Laptop allowance", "Other academic expenses"],
+  "application_process": {
+    "mode": "Online through National Scholarship Portal",
+    "steps": ["Register on NSP", "Fill application form", "Upload documents", "Institute verification", "Scholarship disbursed"]
+  },
+  "official_website": "https://tribal.nic.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

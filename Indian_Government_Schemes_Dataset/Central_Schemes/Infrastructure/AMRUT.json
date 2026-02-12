@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-URB-002",
+  "scheme_name": "Atal Mission for Rejuvenation and Urban Transformation",
+  "ministry": "Ministry of Housing and Urban Affairs",
+  "category": "Urban Infrastructure",
+  "description": "Urban infrastructure scheme focusing on water supply, sewerage, transport, and green spaces in 500 cities.",
+  "target_beneficiaries": ["Urban residents", "City dwellers"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Cities with population over 1 lakh", "Heritage cities", "State capitals"]
+  },
+  "required_documents": [],
+  "benefits": ["Water tap connections", "Sewerage connections", "Urban transport", "Parks and green spaces", "Storm water drains"],
+  "application_process": {
+    "mode": "State Level High Power Steering Committee",
+    "steps": ["State action plan", "Project proposals", "Technical appraisal", "Central sanction", "Implementation"]
+  },
+  "official_website": "https://amrut.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

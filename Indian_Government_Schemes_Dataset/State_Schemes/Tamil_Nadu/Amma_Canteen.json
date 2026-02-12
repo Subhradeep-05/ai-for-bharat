@@ -1,0 +1,26 @@
+{
+  "scheme_id": "TN-FD-001",
+  "scheme_name": "Amma Unavagam (Amma Canteen)",
+  "ministry": "Tamil Nadu Food Department",
+  "category": "Food Security",
+  "description": "Subsidized food canteens providing hygienic and affordable meals to all citizens.",
+  "target_beneficiaries": ["Economically weaker sections", "Daily wage workers", "Students", "General public"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Open to all citizens"]
+  },
+  "required_documents": [],
+  "benefits": ["Idli: ₹1", "Pongal: ₹5", "Curd rice: ₹3", "Sambar rice: ₹5", "Variety rice: ₹20"],
+  "application_process": {
+    "mode": "Walk-in",
+    "steps": ["Visit nearest Amma Canteen", "Purchase coupon", "Collect food"]
+  },
+  "official_website": "https://www.tn.gov.in",
+  "languages_supported": ["Tamil", "English"]
+}

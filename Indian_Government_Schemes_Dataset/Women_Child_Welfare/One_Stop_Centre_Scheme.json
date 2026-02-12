@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-WCD-003",
+  "scheme_name": "One Stop Centre Scheme",
+  "ministry": "Ministry of Women and Child Development",
+  "category": "Women Safety",
+  "description": "Integrated support centre for women affected by violence providing medical, legal, and psychological assistance.",
+  "target_beneficiaries": ["Women affected by violence", "Women in distress"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "Female",
+    "other_conditions": ["Any woman facing domestic violence", "Sexual harassment", "Trafficking", "Honor crimes", "Child marriage"]
+  },
+  "required_documents": ["Identity proof", "Complaint/First Information Report", "Medical reports (if any)"],
+  "benefits": ["Emergency response", "Medical assistance", "Legal aid", "Counselling", "Temporary shelter", "Police facilitation"],
+  "application_process": {
+    "mode": "Walk-in/Helpline",
+    "steps": ["Visit nearest One Stop Centre", "Call helpline 181", "Register complaint", "Get integrated services"]
+  },
+  "official_website": "https://wcd.nic.in/osc",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

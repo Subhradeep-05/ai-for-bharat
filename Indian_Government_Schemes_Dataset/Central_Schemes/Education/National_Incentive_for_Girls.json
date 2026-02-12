@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-EDU-005",
+  "scheme_name": "National Scheme of Incentive to Girls for Secondary Education",
+  "ministry": "Ministry of Education",
+  "category": "Girl Education",
+  "description": "Provides financial incentive to girls from SC/ST communities who pass class VIII and enroll in class IX.",
+  "target_beneficiaries": ["SC/ST girl students", "Girls from minority communities"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": null,
+      "max": 16
+    },
+    "income_limit": "None",
+    "gender": "Female",
+    "other_conditions": ["Belong to SC/ST category", "Pass class VIII examination", "Enrolled in class IX in government school"]
+  },
+  "required_documents": ["Caste certificate", "Class VIII marksheet", "Admission proof for class IX", "Bank account details", "Aadhaar card"],
+  "benefits": ["₹3,000 fixed deposit", "Withdrawal with interest after class X pass", "Encouragement for secondary education"],
+  "application_process": {
+    "mode": "Through schools",
+    "steps": ["School identifies eligible girls", "Submit application to district education officer", "Verification and approval", "Fixed deposit created"]
+  },
+  "official_website": "https://dsel.education.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

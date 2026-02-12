@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-WCD-004",
+  "scheme_name": "Integrated Child Development Services",
+  "ministry": "Ministry of Women and Child Development",
+  "category": "Child Welfare",
+  "description": "Comprehensive early childhood development program providing food, preschool education, and health services.",
+  "target_beneficiaries": ["Children under 6 years", "Pregnant women", "Lactating mothers", "Adolescent girls"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 0,
+      "max": 6
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Universal scheme", "No eligibility restrictions", "Anganwadi center registration"]
+  },
+  "required_documents": ["Aadhaar card", "Birth certificate", "MCH card"],
+  "benefits": ["Supplementary nutrition", "Immunization", "Health checkups", "Preschool education", "Nutrition counseling"],
+  "application_process": {
+    "mode": "Through Anganwadi Centers",
+    "steps": ["Visit local Anganwadi center", "Register child", "Receive services", "Regular attendance"]
+  },
+  "official_website": "https://icds-wcd.nic.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

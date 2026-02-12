@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-EDU-004",
+  "scheme_name": "PM Poshan (Mid Day Meal Scheme)",
+  "ministry": "Ministry of Education",
+  "category": "School Nutrition",
+  "description": "Provides free nutritious meals to children in primary and upper primary classes in government schools.",
+  "target_beneficiaries": ["Students of government schools", "Children in classes 1-8"],
+  "eligibility": {
+    "occupation": ["Student"],
+    "age_range": {
+      "min": 6,
+      "max": 14
+    },
+    "income_limit": "None",
+    "gender": "All",
+    "other_conditions": ["Enrolled in government/government-aided school", "Attendance of at least 70%"]
+  },
+  "required_documents": ["School enrollment proof", "Aadhaar card"],
+  "benefits": ["Free nutritious meal", "Improved nutrition", "Increased school attendance", "Health monitoring"],
+  "application_process": {
+    "mode": "Automatic through school enrollment",
+    "steps": ["Enroll in government school", "Attend school regularly", "Receive meals"]
+  },
+  "official_website": "https://pmposhan.education.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}

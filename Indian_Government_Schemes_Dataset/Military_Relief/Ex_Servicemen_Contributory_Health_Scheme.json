@@ -1,0 +1,26 @@
+{
+  "scheme_id": "MIL-REL-004",
+  "scheme_name": "Ex-Servicemen Contributory Health Scheme",
+  "ministry": "Ministry of Defence",
+  "category": "Healthcare",
+  "description": "Comprehensive healthcare scheme for ex-servicemen, widows, and dependents through empaneled hospitals.",
+  "target_beneficiaries": ["Ex-servicemen", "Families of ex-servicemen", "War widows", "Disabled soldiers"],
+  "eligibility": {
+    "occupation": ["Ex-servicemen"],
+    "age_range": {
+      "min": null,
+      "max": null
+    },
+    "income_limit": "No income limit",
+    "gender": "All",
+    "other_conditions": ["Ex-servicemen receiving pension", "ECHS contribution paid", "Widows eligible", "Dependent parents eligible"]
+  },
+  "required_documents": ["Ex-servicemen identity card", "Pension payment order", "Discharge book", "ECHS card", "Aadhaar card"],
+  "benefits": ["Cashless medical treatment", "Coverage for dependents", "540+ empaneled hospitals", "Pharmacy services", "Diagnostic facilities"],
+  "application_process": {
+    "mode": "Through ECHS Polyclinics",
+    "steps": ["Apply at nearest ECHS polyclinic", "Submit documents", "Pay contribution", "Get ECHS card", "Avail treatment"]
+  },
+  "official_website": "https://echs.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

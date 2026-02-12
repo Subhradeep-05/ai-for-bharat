@@ -1,0 +1,49 @@
+{
+  "scheme_id": "CENT-ENE-001",
+  "scheme_name": "Pradhan Mantri Ujjwala Yojana",
+  "ministry": "Ministry of Petroleum and Natural Gas",
+  "category": "Clean Energy",
+  "description": "Free LPG connections to women from BPL households to replace unclean cooking fuels.",
+  "target_beneficiaries": ["Women from BPL families", "SC/ST women", "Women from economically weaker sections"],
+  "eligibility": {
+    "occupation": [],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "BPL category (monthly income < ₹10,000 for PMUY 3.0)",
+    "gender": "Female",
+    "other_conditions": [
+      "No existing LPG connection in household",
+      "Must have bank account in applicant's name",
+      "Aadhaar card mandatory (except Assam, Meghalaya)",
+      "Excludes income tax payers, government employees"
+    ]
+  },
+  "required_documents": [
+    "Aadhaar card",
+    "BPL certificate/Ration card",
+    "Bank passbook",
+    "Address proof",
+    "Passport size photograph"
+  ],
+  "benefits": [
+    "Free LPG connection (₹1,600 government assistance)",
+    "Free gas stove",
+    "First LPG refill free",
+    "Subsidy of ₹300-352 per refill (up to 9 refills/year)",
+    "Direct Benefit Transfer to bank account"
+  ],
+  "application_process": {
+    "mode": "Online/Offline",
+    "steps": [
+      "Visit pmuy.gov.in or nearest LPG distributor",
+      "Fill application form",
+      "Submit documents",
+      "Verification by distributor",
+      "Connection delivered and installed"
+    ]
+  },
+  "official_website": "https://www.pmuy.gov.in",
+  "languages_supported": ["Hindi", "English"]
+}

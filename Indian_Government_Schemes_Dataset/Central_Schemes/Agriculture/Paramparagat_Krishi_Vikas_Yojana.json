@@ -1,0 +1,26 @@
+{
+  "scheme_id": "CENT-AGR-004",
+  "scheme_name": "Paramparagat Krishi Vikas Yojana",
+  "ministry": "Ministry of Agriculture and Farmers Welfare",
+  "category": "Organic Farming",
+  "description": "Promotes organic farming among small and marginal farmers through cluster approach.",
+  "target_beneficiaries": ["Small and marginal farmers", "Farmers interested in organic farming"],
+  "eligibility": {
+    "occupation": ["Farmer"],
+    "age_range": {
+      "min": 18,
+      "max": null
+    },
+    "income_limit": "None",
+    "gender": "All",
+    "other_conditions": ["Should form clusters of 20-50 farmers", "Minimum 1 acre land"]
+  },
+  "required_documents": ["Land records", "Aadhaar card", "Bank details", "Cluster formation documents"],
+  "benefits": ["Financial assistance ₹50,000/hectare", "Training", "Certification support", "Market linkage"],
+  "application_process": {
+    "mode": "Through State Governments",
+    "steps": ["Form farmer group", "Apply through agriculture department", "Get cluster approval", "Implement project"]
+  },
+  "official_website": "https://pgsindia-ncof.gov.in",
+  "languages_supported": ["Hindi", "English", "Regional languages"]
+}
