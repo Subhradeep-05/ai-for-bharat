@@ -1,0 +1,23 @@
+# Node modules
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs
+*.log
+
+# Build folders
+build/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# React
+saksham-ai-portal/node_modules/
+
+# Backend
+backend/node_modules/

@@ -1,0 +1,460 @@
+.footer {
+  background: linear-gradient(135deg, #001f3f 0%, #000080 100%);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 0 30px;
+}
+
+/* Footer Border */
+.footer-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(to right, #ff9933, #ffffff, #138808);
+}
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Footer Content */
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* Brand Column */
+.brand-column {
+  max-width: 350px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.logo-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #ff9933, #138808);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.logo-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 60%
+  );
+  animation: rotateGlow 20s linear infinite;
+}
+
+.logo-text {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: white;
+  z-index: 1;
+}
+
+.logo-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #ff9933, #ffffff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 5px 0;
+}
+
+.brand-tagline {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.brand-description {
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.7;
+  margin-bottom: 30px;
+  font-size: 0.95rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-link {
+  width: 45px;
+  height: 45px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background: linear-gradient(135deg, #ff9933, #138808);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Column Styles */
+.footer-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-title {
+  font-size: 1.3rem;
+  color: #ff9933;
+  margin-bottom: 25px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.column-title::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(to right, #ff9933, #138808);
+  border-radius: 2px;
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 15px;
+}
+
+.footer-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 8px 0;
+}
+
+.footer-link:hover {
+  color: #ff9933;
+  padding-left: 10px;
+}
+
+.link-icon {
+  font-size: 0.9rem;
+  transition: transform 0.3s ease;
+}
+
+.footer-link:hover .link-icon {
+  transform: translateX(5px);
+}
+
+.link-text {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+/* Contact Info */
+.contact-info {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.contact-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateX(5px);
+}
+
+.contact-icon {
+  color: #ff9933;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.contact-text {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Newsletter */
+.newsletter {
+  margin-top: auto;
+}
+
+.newsletter-title {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 10px;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 12px 20px;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: #ff9933;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-btn {
+  padding: 12px 25px;
+  background: linear-gradient(135deg, #ff9933, #138808);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 30px;
+}
+
+.bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+@media (max-width: 768px) {
+  .bottom-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.copyright {
+  flex: 1;
+}
+
+.copyright p {
+  margin: 0 0 10px 0;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+}
+
+.copyright-note {
+  color: rgba(255, 255, 255, 0.5) !important;
+  font-size: 0.8rem !important;
+}
+
+.legal-links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.legal-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+  color: #ff9933;
+}
+
+.link-separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+}
+
+/* Footer Flag */
+.footer-flag {
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.flag-strip {
+  width: 100%;
+  height: 33.33%;
+}
+
+.saffron {
+  background: #ff9933;
+}
+
+.white {
+  background: white;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.green {
+  background: #138808;
+}
+
+.chakra-small {
+  width: 20px;
+  height: 20px;
+  background: conic-gradient(
+    from 0deg,
+    #000080 0deg 15deg,
+    transparent 15deg 30deg,
+    #000080 30deg 45deg,
+    transparent 45deg 60deg,
+    #000080 60deg 75deg,
+    transparent 75deg 90deg,
+    #000080 90deg 105deg,
+    transparent 105deg 120deg,
+    #000080 120deg 135deg,
+    transparent 135deg 150deg,
+    #000080 150deg 165deg,
+    transparent 165deg 180deg,
+    #000080 180deg 195deg,
+    transparent 195deg 210deg,
+    #000080 210deg 225deg,
+    transparent 225deg 240deg,
+    #000080 240deg 255deg,
+    transparent 255deg 270deg,
+    #000080 270deg 285deg,
+    transparent 285deg 300deg,
+    #000080 300deg 315deg,
+    transparent 315deg 330deg,
+    #000080 330deg 345deg,
+    transparent 345deg 360deg
+  );
+  border-radius: 50%;
+  animation: rotate 10s linear infinite;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    padding: 80px 0 30px;
+  }
+
+  .container {
+    padding: 0 20px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+
+  .newsletter-btn {
+    width: 100%;
+  }
+
+  .footer-flag {
+    height: 45px;
+  }
+
+  .chakra-small {
+    width: 15px;
+    height: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    justify-content: center;
+  }
+
+  .legal-links {
+    justify-content: center;
+  }
+}
