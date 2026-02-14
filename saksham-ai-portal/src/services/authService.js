@@ -36,4 +36,14 @@ export const authService = {
     const user = localStorage.getItem("user");
     return user ? JSON.parse(user) : null;
   },
+
+  // Get auth token
+  getToken() {
+    return localStorage.getItem("token");
+  },
+
+  // Check if user is authenticated
+  isAuthenticated() {
+    return !!localStorage.getItem("token");
+  },
 };

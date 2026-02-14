@@ -4,14 +4,11 @@ const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    trim: true,
   },
   email: {
     type: String,
     required: true,
     unique: true,
-    lowercase: true,
-    trim: true,
   },
   password: {
     type: String,
@@ -19,53 +16,67 @@ const UserSchema = new mongoose.Schema({
   },
   phone: {
     type: String,
-    default: "",
   },
   state: {
     type: String,
-    default: "",
+  },
+  district: {
+    type: String,
+  },
+  address: {
+    type: String,
   },
   occupation: {
     type: String,
-    default: "",
   },
-  income: {
+  annualIncome: {
     type: Number,
-    default: 0,
   },
   category: {
     type: String,
     enum: ["General", "SC", "ST", "OBC", "Other"],
     default: "General",
   },
-  age: {
-    type: Number,
-    default: 0,
+  dob: {
+    type: Date,
   },
   gender: {
     type: String,
-    enum: ["Male", "Female", "Other", ""],
-    default: "",
+    enum: ["Male", "Female", "Other", "Prefer not to say"],
   },
-  familySize: {
-    type: Number,
-    default: 1,
-  },
-  preferredLanguage: {
+  aadhaar: {
     type: String,
-    default: "English",
   },
-  profileCompleted: {
-    type: Boolean,
-    default: false,
+  pan: {
+    type: String,
+  },
+  preferences: {
+    language: { type: String, default: "English" },
+    theme: { type: String, default: "light" },
+    notifications: {
+      email: { type: Boolean, default: true },
+      sms: { type: Boolean, default: false },
+      push: { type: Boolean, default: false },
+      schemeUpdates: { type: Boolean, default: true },
+      applicationStatus: { type: Boolean, default: true },
+      newsletter: { type: Boolean, default: false },
+    },
+    voice: {
+      enabled: { type: Boolean, default: false },
+      language: { type: String, default: "hi-IN" },
+      speed: { type: String, default: "normal" },
+      gender: { type: String, default: "female" },
+    },
+    privacy: {
+      showProfile: { type: Boolean, default: false },
+      dataSharing: { type: Boolean, default: true },
+      analytics: { type: Boolean, default: true },
+    },
   },
   createdAt: {
     type: Date,
     default: Date.now,
   },
 });
-
-// ❌ NO pre-save middleware - we hash in the route
-// ❌ NO comparePassword method - we use bcrypt.compare directly in route
 
 module.exports = mongoose.model("User", UserSchema);

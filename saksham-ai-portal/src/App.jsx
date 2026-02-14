@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import VerifyDocument from "./pages/VerifyDocument"; // Add this import
 import { authService } from "./services/authService";
 import "./App.css";
 
@@ -65,7 +66,7 @@ function App() {
           />
 
           <Route
-            path="/dashboard"
+            path="/dashboard/*"
             element={
               isAuthenticated ? (
                 <Dashboard setIsAuthenticated={setIsAuthenticated} />
@@ -74,6 +75,10 @@ function App() {
               )
             }
           />
+
+          {/* Public verification routes - accessible without authentication */}
+          <Route path="/verify-document" element={<VerifyDocument />} />
+          <Route path="/verify-failed" element={<VerifyDocument />} />
 
           {/* Catch all other routes and redirect to home */}
           <Route path="*" element={<Navigate to="/" replace />} />
