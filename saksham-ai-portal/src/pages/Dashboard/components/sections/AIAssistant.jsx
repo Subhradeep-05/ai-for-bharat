@@ -11,15 +11,18 @@ import {
   FaHistory,
   FaTimes,
   FaUser,
+  FaSpinner,
+  FaGlobe,
 } from "react-icons/fa";
 import "/src/pages/Dashboard/dashboard-sections.css";
+import { cerebrasAPI } from "@/services/cerebrasAPI";
 
 const AIAssistant = ({ user }) => {
   const [messages, setMessages] = useState([
     {
       id: 1,
       type: "bot",
-      text: "Namaste! I'm Saarthi AI, your personal guide for government schemes. How can I help you today? You can ask me in Hindi, English, or any other Indian language.",
+      text: "Namaste! I'm Saarthi AI, your personal guide for government schemes. How can I help you today? You can ask me in Hindi, English, Tamil, Telugu, Bengali, or any other Indian language.",
       timestamp: new Date().toLocaleTimeString(),
     },
   ]);
@@ -28,8 +31,12 @@ const AIAssistant = ({ user }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [showQuickReplies, setShowQuickReplies] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("auto");
+  const [chatHistory, setChatHistory] = useState([]);
   const messagesEndRef = useRef(null);
 
+  // ✅ Quick Replies Array
   const quickReplies = [
     "PM Kisan eligibility",
     "Ayushman Bharat documents",
@@ -39,105 +46,274 @@ const AIAssistant = ({ user }) => {
     "Documents required for pension",
   ];
 
+  // ✅ Suggested Questions Array
   const suggestedQuestions = [
     {
       id: 1,
       question: "What is PM Kisan Samman Nidhi?",
       answer:
-        "PM Kisan Samman Nidhi is a Central Sector scheme that provides income support of ₹6,000 per year to small and marginal farmer families. The amount is transferred in three equal installments of ₹2,000 every four months directly to the bank accounts of beneficiaries.",
+        "PM Kisan provides ₹6,000/year to farmers. Apply at pmkisan.gov.in with Aadhaar and land records.",
     },
     {
       id: 2,
       question: "How to apply for Ayushman Bharat?",
       answer:
-        "To apply for Ayushman Bharat (PM-JAY), you can visit the nearest Common Service Centre (CSC) or empaneled hospital. You'll need your Aadhaar card, ration card, and income certificate. The scheme provides health cover of ₹5 lakh per family per year for secondary and tertiary care hospitalization.",
+        "Visit nearest CSC with Aadhaar, ration card, and income certificate for ₹5 lakh health cover.",
+    },
+    {
+      id: 3,
+      question: "Documents needed for pension?",
+      answer:
+        "Age proof, BPL certificate, bank passbook, and Aadhaar card required for pension schemes.",
+    },
+    {
+      id: 4,
+      question: "PM Kisan ki yogyata kya hai?",
+      answer:
+        "PM Kisan ke liye aapke paas kheti ki zameen honi chahiye. Har saal ₹6,000 milta hai.",
     },
   ];
 
+  // Load chat history from localStorage on mount
   useEffect(() => {
+    loadChatHistory();
+  }, []);
+
+  // Save messages to history whenever they change
+  useEffect(() => {
+    if (messages.length > 1) {
+      saveToHistory();
+    }
     scrollToBottom();
   }, [messages]);
+
+  const loadChatHistory = () => {
+    try {
+      const saved = localStorage.getItem(
+        `saarthi_chat_history_${user?.id || "guest"}`,
+      );
+      if (saved) {
+        const history = JSON.parse(saved);
+        setChatHistory(history);
+      }
+    } catch (error) {
+      console.error("Error loading chat history:", error);
+    }
+  };
+
+  const saveToHistory = () => {
+    try {
+      const recentMessages = messages.slice(-50);
+      const historyData = {
+        id: Date.now(),
+        date: new Date().toLocaleDateString(),
+        messages: recentMessages,
+        preview:
+          recentMessages[recentMessages.length - 1]?.text.substring(0, 50) +
+          "...",
+        count: recentMessages.length,
+      };
+
+      const updatedHistory = [historyData, ...chatHistory.slice(0, 9)];
+      setChatHistory(updatedHistory);
+      localStorage.setItem(
+        `saarthi_chat_history_${user?.id || "guest"}`,
+        JSON.stringify(updatedHistory),
+      );
+    } catch (error) {
+      console.error("Error saving chat history:", error);
+    }
+  };
+
+  const clearHistory = () => {
+    setChatHistory([]);
+    localStorage.removeItem(`saarthi_chat_history_${user?.id || "guest"}`);
+  };
+
+  const loadHistorySession = (session) => {
+    setMessages(session.messages);
+    setShowHistory(false);
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleSendMessage = () => {
-    if (!inputText.trim()) return;
+  const getLanguagePrompt = (query) => {
+    let langInstruction = "";
 
-    // Add user message
+    if (selectedLanguage !== "auto") {
+      const langMap = {
+        hi: "Respond in Hindi language only. Use Devanagari script.",
+        en: "Respond in English language only.",
+        ta: "Respond in Tamil language only. Use Tamil script.",
+        te: "Respond in Telugu language only. Use Telugu script.",
+        bn: "Respond in Bengali language only. Use Bengali script.",
+        mr: "Respond in Marathi language only. Use Devanagari script.",
+        gu: "Respond in Gujarati language only. Use Gujarati script.",
+        pa: "Respond in Punjabi language only. Use Gurmukhi script.",
+      };
+      langInstruction = langMap[selectedLanguage] || "";
+    } else {
+      const devanagariRegex = /[\u0900-\u097F]/;
+      const tamilRegex = /[\u0B80-\u0BFF]/;
+      const teluguRegex = /[\u0C00-\u0C7F]/;
+      const bengaliRegex = /[\u0980-\u09FF]/;
+
+      if (devanagariRegex.test(query)) {
+        langInstruction =
+          "The user is writing in Hindi. Respond in Hindi using Devanagari script.";
+      } else if (tamilRegex.test(query)) {
+        langInstruction =
+          "The user is writing in Tamil. Respond in Tamil using Tamil script.";
+      } else if (teluguRegex.test(query)) {
+        langInstruction =
+          "The user is writing in Telugu. Respond in Telugu using Telugu script.";
+      } else if (bengaliRegex.test(query)) {
+        langInstruction =
+          "The user is writing in Bengali. Respond in Bengali using Bengali script.";
+      } else {
+        langInstruction =
+          "Respond in the same language the user used. If they used English, respond in English.";
+      }
+    }
+
+    return langInstruction;
+  };
+
+  const handleSendMessage = async () => {
+    if (!inputText.trim() || isLoading) return;
+
     const userMessage = {
       id: messages.length + 1,
       type: "user",
       text: inputText,
       timestamp: new Date().toLocaleTimeString(),
+      language: selectedLanguage,
     };
-    setMessages([...messages, userMessage]);
+    setMessages((prev) => [...prev, userMessage]);
     setInputText("");
+    setIsLoading(true);
 
-    // Simulate bot response
-    setTimeout(() => {
-      const botResponse = generateBotResponse(inputText);
+    try {
+      const langInstruction = getLanguagePrompt(inputText);
+      const recentMessages = messages.slice(-10);
+      const conversationHistory = recentMessages.map((msg) => ({
+        role: msg.type === "user" ? "user" : "assistant",
+        content: msg.text,
+      }));
+
+      const systemPrompt = {
+        role: "system",
+        content: `You are Saarthi AI, a helpful assistant for Indian government schemes. 
+                ${langInstruction}
+                
+                Provide accurate, concise information about:
+                - PM Kisan, Ayushman Bharat, Scholarships, Pensions
+                - Eligibility criteria, documents required
+                - Application process, deadlines
+                - Answer in simple language, be friendly and helpful.
+                
+                Current user: ${user?.name || "Guest"}
+                IMPORTANT: Always respond in the SAME LANGUAGE that the user wrote in.
+                If they write in Hindi, respond in Hindi.
+                If they write in English, respond in English.
+                If they write in Tamil, respond in Tamil.`,
+      };
+
+      const apiMessages = [
+        systemPrompt,
+        ...conversationHistory,
+        { role: "user", content: inputText },
+      ];
+
+      console.log("📤 Sending to Cerebras with language:", selectedLanguage);
+
+      const response = await cerebrasAPI.sendMessage(apiMessages, {
+        model: "llama3.1-8b",
+        temperature: 0.7,
+        max_tokens: 800,
+      });
+
+      console.log("✅ Cerebras response:", response);
+
+      const botResponse =
+        response.choices[0]?.message?.content ||
+        "I'm sorry, I couldn't process that. Please try again.";
+
       const botMessage = {
         id: messages.length + 2,
         type: "bot",
         text: botResponse,
         timestamp: new Date().toLocaleTimeString(),
+        language: selectedLanguage,
       };
       setMessages((prev) => [...prev, botMessage]);
-    }, 1000);
-  };
+    } catch (error) {
+      console.error("❌ API Error:", error);
 
-  const generateBotResponse = (query) => {
-    const q = query.toLowerCase();
-    if (q.includes("pm kisan") || q.includes("kisan")) {
-      return "PM Kisan Samman Nidhi provides ₹6,000 per year to farmers. You can apply online at pmkisan.gov.in. Required documents: Aadhaar, land records, bank account. Are you a farmer? I can check your eligibility if you share your details.";
-    } else if (q.includes("ayushman") || q.includes("bharat")) {
-      return "Ayushman Bharat (PM-JAY) provides health cover of ₹5 lakh per family. You can check eligibility at the nearest CSC center. Documents needed: Aadhaar, ration card, income certificate. Would you like to find a nearby CSC?";
-    } else if (q.includes("scholarship")) {
-      return "PM Scholarship Scheme offers ₹12,000 per year for meritorious students. Deadline is usually October. You need 50% marks and family income below ₹2.5L. Apply at scholarships.gov.in";
-    } else if (q.includes("document") || q.includes("documents")) {
-      return "Common documents needed for most schemes: Aadhaar Card, PAN Card, Bank Passbook, Passport size photos, Income Certificate, Caste Certificate (if applicable), and Residence Proof. You can upload them in your Document Vault.";
-    } else {
-      return (
-        "I understand you're asking about " +
-        query +
-        ". Could you please provide more details? You can ask about specific schemes like PM Kisan, Ayushman Bharat, scholarships, pensions, or document requirements."
-      );
+      const errorMessage = {
+        id: messages.length + 2,
+        type: "bot",
+        text: "I'm having trouble connecting right now. Please try again in a moment.",
+        timestamp: new Date().toLocaleTimeString(),
+      };
+      setMessages((prev) => [...prev, errorMessage]);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleQuickReply = (reply) => {
-    const userMessage = {
-      id: messages.length + 1,
-      type: "user",
-      text: reply,
-      timestamp: new Date().toLocaleTimeString(),
-    };
-    setMessages([...messages, userMessage]);
-    setShowQuickReplies(false);
-
+    setInputText(reply);
     setTimeout(() => {
-      const botResponse = generateBotResponse(reply);
-      const botMessage = {
-        id: messages.length + 2,
-        type: "bot",
-        text: botResponse,
-        timestamp: new Date().toLocaleTimeString(),
-      };
-      setMessages((prev) => [...prev, botMessage]);
-    }, 1000);
+      handleSendMessage();
+    }, 100);
   };
 
   const handleVoiceInput = () => {
-    setIsRecording(!isRecording);
-    if (!isRecording) {
-      // Simulate voice recognition
-      setTimeout(() => {
-        setInputText("PM Kisan scheme eligibility");
-        setIsRecording(false);
-      }, 2000);
+    if (
+      !("webkitSpeechRecognition" in window) &&
+      !("SpeechRecognition" in window)
+    ) {
+      alert("Voice recognition not supported. Please use Chrome.");
+      return;
     }
+
+    setIsRecording(true);
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+
+    const langMap = {
+      hi: "hi-IN",
+      en: "en-IN",
+      ta: "ta-IN",
+      te: "te-IN",
+      bn: "bn-IN",
+      mr: "mr-IN",
+      gu: "gu-IN",
+      pa: "pa-IN",
+      auto: "hi-IN",
+    };
+
+    recognition.lang = langMap[selectedLanguage] || "hi-IN";
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setInputText(transcript);
+      setIsRecording(false);
+    };
+
+    recognition.onerror = () => {
+      setIsRecording(false);
+      alert("Voice recognition failed. Please try again.");
+    };
+
+    recognition.onend = () => setIsRecording(false);
+    recognition.start();
   };
 
   const handleTextToSpeech = (text) => {
@@ -146,17 +322,39 @@ const AIAssistant = ({ user }) => {
       setIsPlaying(false);
     } else {
       const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = "hi-IN";
+
+      const langMap = {
+        hi: "hi-IN",
+        ta: "ta-IN",
+        te: "te-IN",
+        bn: "bn-IN",
+        mr: "mr-IN",
+        gu: "gu-IN",
+        pa: "pa-IN",
+      };
+
+      utterance.lang = langMap[selectedLanguage] || "hi-IN";
       utterance.onend = () => setIsPlaying(false);
       window.speechSynthesis?.speak(utterance);
       setIsPlaying(true);
     }
   };
 
-  const chatHistory = [
-    { date: "Today", count: 3 },
-    { date: "Yesterday", count: 2 },
-    { date: "This Week", count: 8 },
+  const handleCopyText = (text) => {
+    navigator.clipboard.writeText(text);
+    alert("Copied to clipboard!");
+  };
+
+  const languages = [
+    { code: "auto", name: "🌐 Auto Detect", flag: "🤖" },
+    { code: "hi", name: "हिंदी", flag: "🇮🇳" },
+    { code: "en", name: "English", flag: "🇬🇧" },
+    { code: "ta", name: "தமிழ்", flag: "🇮🇳" },
+    { code: "te", name: "తెలుగు", flag: "🇮🇳" },
+    { code: "bn", name: "বাংলা", flag: "🇮🇳" },
+    { code: "mr", name: "मराठी", flag: "🇮🇳" },
+    { code: "gu", name: "ગુજરાતી", flag: "🇮🇳" },
+    { code: "pa", name: "ਪੰਜਾਬੀ", flag: "🇮🇳" },
   ];
 
   return (
@@ -169,6 +367,22 @@ const AIAssistant = ({ user }) => {
         <p className="section-description">
           Ask me anything about government schemes in your language
         </p>
+
+        {/* Language Selector */}
+        <div className="language-selector">
+          <FaGlobe className="language-icon" />
+          <select
+            value={selectedLanguage}
+            onChange={(e) => setSelectedLanguage(e.target.value)}
+            className="language-dropdown"
+          >
+            {languages.map((lang) => (
+              <option key={lang.code} value={lang.code}>
+                {lang.flag} {lang.name}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
 
       <div className="ai-container">
@@ -192,16 +406,21 @@ const AIAssistant = ({ user }) => {
                         <button
                           className="message-action"
                           onClick={() => handleTextToSpeech(message.text)}
+                          title="Listen"
                         >
                           {isPlaying ? <FaStop /> : <FaVolumeUp />}
                         </button>
-                        <button className="message-action">
+                        <button
+                          className="message-action"
+                          onClick={() => handleCopyText(message.text)}
+                          title="Copy"
+                        >
                           <FaCopy />
                         </button>
-                        <button className="message-action">
+                        <button className="message-action" title="Helpful">
                           <FaThumbsUp />
                         </button>
-                        <button className="message-action">
+                        <button className="message-action" title="Not helpful">
                           <FaThumbsDown />
                         </button>
                       </div>
@@ -210,11 +429,23 @@ const AIAssistant = ({ user }) => {
                 </div>
               </div>
             ))}
+            {isLoading && (
+              <div className="message bot-message">
+                <div className="message-avatar">
+                  <FaRobot />
+                </div>
+                <div className="message-content">
+                  <div className="message-text">
+                    <FaSpinner className="spinning" /> Thinking...
+                  </div>
+                </div>
+              </div>
+            )}
             <div ref={messagesEndRef} />
           </div>
 
           {/* Quick Replies */}
-          {showQuickReplies && (
+          {showQuickReplies && messages.length < 3 && (
             <div className="quick-replies">
               <p className="quick-replies-title">Suggested questions:</p>
               <div className="quick-reply-buttons">
@@ -223,6 +454,7 @@ const AIAssistant = ({ user }) => {
                     key={index}
                     className="quick-reply-btn"
                     onClick={() => handleQuickReply(reply)}
+                    disabled={isLoading}
                   >
                     {reply}
                   </button>
@@ -236,45 +468,55 @@ const AIAssistant = ({ user }) => {
             <div className="input-wrapper">
               <input
                 type="text"
-                placeholder="Type your question here..."
+                placeholder={`Type in ${languages.find((l) => l.code === selectedLanguage)?.name || "your language"}...`}
                 value={inputText}
                 onChange={(e) => setInputText(e.target.value)}
                 onKeyPress={(e) => e.key === "Enter" && handleSendMessage()}
                 className="chat-text-input"
+                disabled={isLoading}
               />
               <button
                 className={`voice-btn ${isRecording ? "recording" : ""}`}
                 onClick={handleVoiceInput}
+                disabled={isLoading}
+                title="Voice input"
               >
                 <FaMicrophone />
               </button>
-              <button className="send-btn" onClick={handleSendMessage}>
+              <button
+                className="send-btn"
+                onClick={handleSendMessage}
+                disabled={isLoading || !inputText.trim()}
+              >
                 <FaPaperPlane />
               </button>
             </div>
             <p className="input-hint">
-              Speak or type in Hindi, English, or your preferred language
+              Speak or type in any language - I'll respond in the same language
             </p>
           </div>
         </div>
 
         {/* Side Panel */}
         <div className="ai-side-panel">
-          {/* Suggested Questions */}
-          <div className="suggested-questions-panel">
-            <h4>📝 Suggested Questions</h4>
-            <div className="suggested-list">
-              {suggestedQuestions.map((sq) => (
-                <div
-                  key={sq.id}
-                  className="suggested-item"
-                  onClick={() => handleQuickReply(sq.question)}
+          {/* Language Info */}
+          <div className="language-info-panel">
+            <h4>🌐 Selected Language</h4>
+            <div className="current-language">
+              <span className="selected-lang-badge">
+                {languages.find((l) => l.code === selectedLanguage)?.flag}{" "}
+                {languages.find((l) => l.code === selectedLanguage)?.name}
+              </span>
+            </div>
+            <div className="language-tags">
+              {languages.slice(1).map((lang) => (
+                <span
+                  key={lang.code}
+                  className={`lang-tag ${selectedLanguage === lang.code ? "active" : ""}`}
+                  onClick={() => setSelectedLanguage(lang.code)}
                 >
-                  <p className="suggested-question">{sq.question}</p>
-                  <p className="suggested-answer-preview">
-                    {sq.answer.substring(0, 60)}...
-                  </p>
-                </div>
+                  {lang.flag} {lang.name}
+                </span>
               ))}
             </div>
           </div>
@@ -283,48 +525,80 @@ const AIAssistant = ({ user }) => {
           <div className="chat-history-panel">
             <div className="history-header">
               <h4>🕒 Chat History</h4>
-              <button
-                className="view-all-history"
-                onClick={() => setShowHistory(!showHistory)}
-              >
-                {showHistory ? "Hide" : "View All"}
-              </button>
+              <div className="history-actions">
+                {chatHistory.length > 0 && (
+                  <button
+                    className="clear-history"
+                    onClick={clearHistory}
+                    title="Clear history"
+                  >
+                    <FaTimes />
+                  </button>
+                )}
+                <button
+                  className="view-all-history"
+                  onClick={() => setShowHistory(!showHistory)}
+                >
+                  {showHistory ? "Hide" : "View All"}
+                </button>
+              </div>
             </div>
+
             {showHistory ? (
               <div className="history-list">
-                {chatHistory.map((item, index) => (
-                  <div key={index} className="history-item">
-                    <span className="history-date">{item.date}</span>
-                    <span className="history-count">{item.count} chats</span>
-                  </div>
-                ))}
+                {chatHistory.length > 0 ? (
+                  chatHistory.map((session) => (
+                    <div
+                      key={session.id}
+                      className="history-item"
+                      onClick={() => loadHistorySession(session)}
+                    >
+                      <span className="history-date">{session.date}</span>
+                      <span className="history-preview">{session.preview}</span>
+                      <span className="history-count">
+                        {session.count} msgs
+                      </span>
+                    </div>
+                  ))
+                ) : (
+                  <div className="no-history">No chat history yet</div>
+                )}
               </div>
             ) : (
               <div className="recent-chats">
-                <div className="recent-chat-item">
-                  <FaHistory />
-                  <span>PM Kisan eligibility</span>
-                </div>
-                <div className="recent-chat-item">
-                  <FaHistory />
-                  <span>Ayushman Bharat documents</span>
-                </div>
+                {chatHistory.slice(0, 3).map((session, index) => (
+                  <div
+                    key={index}
+                    className="recent-chat-item"
+                    onClick={() => loadHistorySession(session)}
+                  >
+                    <FaHistory />
+                    <span>{session.preview || "Previous conversation"}</span>
+                  </div>
+                ))}
+                {chatHistory.length === 0 && (
+                  <div className="recent-chat-item">
+                    <FaHistory />
+                    <span>No recent chats</span>
+                  </div>
+                )}
               </div>
             )}
           </div>
 
-          {/* Language Info */}
-          <div className="language-info-panel">
-            <h4>🌐 Supported Languages</h4>
-            <div className="language-tags">
-              <span className="lang-tag">हिंदी</span>
-              <span className="lang-tag">English</span>
-              <span className="lang-tag">தமிழ்</span>
-              <span className="lang-tag">తెలుగు</span>
-              <span className="lang-tag">বাংলা</span>
-              <span className="lang-tag">मराठी</span>
-              <span className="lang-tag">ગુજરાતી</span>
-              <span className="lang-tag">ਪੰਜਾਬੀ</span>
+          {/* Suggested Questions */}
+          <div className="suggested-questions-panel">
+            <h4>📝 Try Asking</h4>
+            <div className="suggested-list">
+              {suggestedQuestions.map((sq) => (
+                <div
+                  key={sq.id}
+                  className="suggested-item"
+                  onClick={() => handleQuickReply(sq.question)}
+                >
+                  <p className="suggested-question">{sq.question}</p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
