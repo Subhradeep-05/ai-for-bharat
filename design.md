@@ -11,6 +11,137 @@
 
 ---
 
+## Visual Architecture Overview
+
+### Technology Stack Mindmap
+
+```mermaid
+mindmap
+  root((Saarthi AI<br/>Tech Stack))
+    🎨 Frontend
+      React 18.x
+      Vite 4.x
+      React Router 6.x
+      TailwindCSS
+      Framer Motion
+      React Query
+      Zustand
+      i18next
+      React Hook Form
+      Zod
+    ⚙️ Backend
+      Node.js 18.x
+      Express 4.x
+      MongoDB 6.x
+      Mongoose 7.x
+      JWT
+      bcrypt
+      Multer
+      Nodemailer
+      Redis
+      Bull Queue
+    🧠 AI/ML
+      TensorFlow.js
+      Python FastAPI
+      Rasa Chatbot
+      Google Vision OCR
+      Google Speech API
+      Elasticsearch
+      MLflow
+    ☁️ Infrastructure
+      AWS/GCP/Azure
+      Docker
+      Kubernetes
+      GitHub Actions
+      Terraform
+      Prometheus
+      Grafana
+      ELK Stack
+```
+
+### Frontend Architecture Flow
+
+```mermaid
+graph TD
+    subgraph "📱 Pages"
+        Home[Home Page]
+        Dashboard[Dashboard]
+        Schemes[Schemes Page]
+        Applications[Applications Page]
+        Documents[Document Vault]
+        Settings[Settings Page]
+        Verify[Verify Document]
+    end
+    
+    subgraph "🧩 Components"
+        Layout[Layout Components]
+        UI[UI Components]
+        Forms[Form Components]
+        Modals[Modal Components]
+        Cards[Card Components]
+        Charts[Chart Components]
+    end
+    
+    subgraph "🔄 State Management"
+        Store[Zustand Store]
+        Query[React Query]
+        Local[Local Storage]
+    end
+    
+    subgraph "🔧 Services"
+        API[API Service]
+        Auth[Auth Service]
+        Document[Document Service]
+        Scheme[Scheme Service]
+        AI[AI Service]
+    end
+    
+    subgraph "🎨 Styles"
+        Global[Global Styles]
+        Themes[Theme System]
+        Utils[Utility Classes]
+    end
+    
+    Home --> Layout
+    Home --> Cards
+    Dashboard --> Charts
+    Dashboard --> Cards
+    Schemes --> Forms
+    Schemes --> Cards
+    Applications --> Modals
+    Documents --> Modals
+    Settings --> Forms
+    
+    Cards --> UI
+    Forms --> UI
+    Modals --> UI
+    Charts --> UI
+    
+    UI --> Store
+    UI --> Query
+    Store --> Local
+    Query --> API
+    
+    API --> Auth
+    API --> Document
+    API --> Scheme
+    API --> AI
+    
+    classDef pages fill:#bbdefb,stroke:#1976d2,stroke-width:2px;
+    classDef components fill:#c8e6c9,stroke:#388e3c,stroke-width:2px;
+    classDef state fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
+    classDef services fill:#ffccbc,stroke:#f4511e,stroke-width:2px;
+    classDef styles fill:#e1bee7,stroke:#8e24aa,stroke-width:2px;
+    
+    class Home,Dashboard,Schemes,Applications,Documents,Settings,Verify pages;
+    class Layout,UI,Forms,Modals,Cards,Charts components;
+    class Store,Query,Local state;
+    class API,Auth,Document,Scheme,AI services;
+    class Global,Themes,Utils styles;
+```
+
+---
+
 ## 1. System Architecture
 
 ### 1.1 High-Level Architecture
