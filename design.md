@@ -1,62 +1,13 @@
+# Saarthi AI - Government Scheme Assistant
+## Comprehensive Design Document
 
 ---
 
-## **design.md** 
+## Document Control
 
-```markdown
-# 🏛️ Saarthi AI - Government Scheme Assistant
-## 🎨 System Design Document
-
-<div align="center">
-  <img src="https://via.placeholder.com/800x200/667eea/ffffff?text=Saarthi+AI+Architecture" alt="Saarthi AI Architecture" style="border-radius: 10px; margin: 20px 0;">
-  
-  **Version 1.0** | **Last Updated: February 2024** | **Status: ⚡ In Development**
-</div>
-
----
-
-## 📑 Table of Contents
-
-- [1. System Architecture](#1-system-architecture)
-  - [1.1 High-Level Architecture](#11-high-level-architecture)
-  - [1.2 Technology Stack](#12-technology-stack)
-  - [1.3 Architecture Principles](#13-architecture-principles)
-- [2. Frontend Design](#2-frontend-design)
-  - [2.1 Component Architecture](#21-component-architecture)
-  - [2.2 State Management](#22-state-management)
-  - [2.3 Routing Structure](#23-routing-structure)
-  - [2.4 UI/UX Design System](#24-uiux-design-system)
-- [3. Backend Design](#3-backend-design)
-  - [3.1 API Architecture](#31-api-architecture)
-  - [3.2 Microservices Overview](#32-microservices-overview)
-  - [3.3 Authentication Flow](#33-authentication-flow)
-  - [3.4 File Processing Pipeline](#34-file-processing-pipeline)
-- [4. Database Design](#4-database-design)
-  - [4.1 Entity Relationship Diagram](#41-entity-relationship-diagram)
-  - [4.2 Collection Schemas](#42-collection-schemas)
-  - [4.3 Indexing Strategy](#43-indexing-strategy)
-- [5. AI/ML Architecture](#5-aiml-architecture)
-  - [5.1 Recommendation Engine](#51-recommendation-engine)
-  - [5.2 NLP Pipeline](#52-nlp-pipeline)
-  - [5.3 Document Intelligence](#53-document-intelligence)
-- [6. Security Design](#6-security-design)
-  - [6.1 Authentication & Authorization](#61-authentication--authorization)
-  - [6.2 Data Encryption](#62-data-encryption)
-  - [6.3 API Security](#63-api-security)
-- [7. Scalability Design](#7-scalability-design)
-  - [7.1 Horizontal Scaling](#71-horizontal-scaling)
-  - [7.2 Caching Strategy](#72-caching-strategy)
-  - [7.3 Database Optimization](#73-database-optimization)
-- [8. DevOps & Deployment](#8-devops--deployment)
-  - [8.1 CI/CD Pipeline](#81-cicd-pipeline)
-  - [8.2 Infrastructure as Code](#82-infrastructure-as-code)
-  - [8.3 Monitoring & Observability](#83-monitoring--observability)
-- [9. API Documentation](#9-api-documentation)
-  - [9.1 Authentication APIs](#91-authentication-apis)
-  - [9.2 Scheme APIs](#92-scheme-apis)
-  - [9.3 Application APIs](#93-application-apis)
-  - [9.4 Document APIs](#94-document-apis)
-  - [9.5 AI APIs](#95-ai-apis)
+| Version | Date | Author | Description |
+|---------|------|--------|-------------|
+| 1.0 | 2024 | Saarthi AI Team | Initial Design Specification |
 
 ---
 
@@ -64,1058 +15,1007 @@
 
 ### 1.1 High-Level Architecture
 
-```mermaid
-graph TB
-    subgraph "🌐 Client Layer"
-        A[Web App<br/>React + Vite] --> CDN[Cloudflare CDN]
-        B[Mobile App<br/>React Native] --> CDN
-        C[CSC Kiosk<br/>Web Interface] --> CDN
-    end
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                         CLIENT LAYER                             │
+├─────────────────────────────────────────────────────────────────┤
+│  Web App (React)  │  Mobile App (React Native)  │  Voice IVR    │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                      API GATEWAY LAYER                           │
+├─────────────────────────────────────────────────────────────────┤
+│  Load Balancer (Nginx)  │  Rate Limiter  │  API Gateway         │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    APPLICATION LAYER                             │
+├─────────────────────────────────────────────────────────────────┤
+│  Auth Service  │  User Service  │  Scheme Service  │  AI Service │
+│  Application   │  Document      │  Notification    │  Search     │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                       DATA LAYER                                 │
+├─────────────────────────────────────────────────────────────────┤
+│  MongoDB  │  Redis Cache  │  S3 Storage  │  Elasticsearch       │
+└─────────────────────────────────────────────────────────────────┘
+                              │
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                    EXTERNAL SERVICES                             │
+├─────────────────────────────────────────────────────────────────┤
+│  DigiLocker  │  Aadhaar API  │  SMS Gateway  │  Email Service   │
+└─────────────────────────────────────────────────────────────────┘
+```
 
-    subgraph "🚀 Edge Layer"
-        CDN --> LB[Load Balancer<br/>Nginx/ALB]
-        LB --> WAF[Web Application Firewall]
-    end
+### 1.2 Component Architecture
 
-    subgraph "⚙️ Application Layer"
-        direction TB
-        API[API Gateway<br/>Express.js]
-        
-        subgraph "🎯 Microservices"
-            Auth[Auth Service]
-            User[User Service]
-            Scheme[Scheme Service]
-            AppSvc[Application Service]
-            DocSvc[Document Service]
-            Notify[Notification Service]
-            Search[Search Service]
-            Admin[Admin Service]
-        end
-        
-        API --> Auth
-        API --> User
-        API --> Scheme
-        API --> AppSvc
-        API --> DocSvc
-        API --> Notify
-        API --> Search
-        API --> Admin
-    end
+#### Frontend Architecture (React)
+```
+src/
+├── components/          # Reusable UI components
+│   ├── common/         # Buttons, Cards, Modals
+│   ├── forms/          # Form components
+│   ├── layout/         # Header, Footer, Sidebar
+│   └── scheme/         # Scheme-specific components
+├── pages/              # Page components
+│   ├── Home/
+│   ├── Profile/
+│   ├── Schemes/
+│   ├── Applications/
+│   └── Dashboard/
+├── services/           # API service layer
+├── hooks/              # Custom React hooks
+├── store/              # State management (Zustand)
+├── utils/              # Helper functions
+├── constants/          # Constants and configs
+├── i18n/               # Internationalization
+└── styles/             # Global styles
+```
 
-    subgraph "🧠 AI Layer"
-        direction TB
-        RecSys[Recommendation Engine<br/>Python/FastAPI]
-        NLP[NLP Service<br/>Rasa]
-        OCR[Document OCR<br/>Google Vision]
-        Voice[Voice Service<br/>Speech-to-Text]
-        
-        RecSys --> MLflow[MLflow<br/>Model Registry]
-        NLP --> MLflow
-    end
+#### Backend Architecture (Node.js/Express)
+```
+backend/
+├── controllers/        # Request handlers
+├── models/            # Database models
+├── routes/            # API routes
+├── middleware/        # Custom middleware
+├── services/          # Business logic
+├── utils/             # Helper functions
+├── config/            # Configuration files
+├── validators/        # Input validation
+└── tests/             # Test files
+```
 
-    subgraph "💾 Data Layer"
-        direction TB
-        Mongo[(MongoDB Atlas)]
-        Redis[(Redis Cache)]
-        ES[(Elasticsearch)]
-        S3[(Object Storage<br/>S3/Cloud Storage)]
-        
-        Mongo --> Backup[Automated Backup]
-        Redis --> Monitor[Redis Insight]
-    end
+---
 
-    subgraph "📤 Integration Layer"
-        Email[Email Service<br/>Nodemailer]
-        SMS[SMS Gateway]
-        Govt[Government APIs]
-        DigiLocker[DigiLocker API]
-    end
+## 2. Database Design
 
-    %% Connections
-    AppSvc --> Mongo
-    AppSvc --> Redis
-    Scheme --> ES
-    Search --> ES
-    DocSvc --> S3
-    DocSvc --> OCR
-    Auth --> Mongo
-    Notify --> Email
-    Notify --> SMS
-    User --> Mongo
-    RecSys --> Mongo
-    RecSys --> Redis
-    API --> Govt
-    API --> DigiLocker
+### 2.1 MongoDB Collections
 
-    classDef client fill:#e1f5fe,stroke:#01579b,stroke-width:2px;
-    classDef edge fill:#fff3e0,stroke:#e65100,stroke-width:2px;
-    classDef app fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px;
-    classDef ai fill:#f3e5f5,stroke:#4a148c,stroke-width:2px;
-    classDef data fill:#ffebee,stroke:#b71c1c,stroke-width:2px;
-    classDef integration fill:#e0f2f1,stroke:#004d40,stroke-width:2px;
-
-    class A,B,C client;
-    class CDN,LB,WAF edge;
-    class API,Auth,User,Scheme,AppSvc,DocSvc,Notify,Search,Admin app;
-    class RecSys,NLP,OCR,Voice,MLflow ai;
-    class Mongo,Redis,ES,S3,Backup,Monitor data;
-    class Email,SMS,Govt,DigiLocker integration;
-1.2 Technology Stack
-mindmap
-  root((Saarthi AI<br/>Tech Stack))
-    
-    🎨 Frontend
-      React 18.x
-      Vite 4.x
-      React Router 6.x
-      TailwindCSS
-      Framer Motion
-      React Query
-      Zustand
-      i18next
-      React Hook Form
-      Zod
-    
-    ⚙️ Backend
-      Node.js 18.x
-      Express 4.x
-      MongoDB 6.x
-      Mongoose 7.x
-      JWT
-      bcrypt
-      Multer
-      Nodemailer
-      Redis
-      Bull Queue
-    
-    🧠 AI/ML
-      TensorFlow.js
-      Python FastAPI
-      Rasa Chatbot
-      Google Vision OCR
-      Google Speech API
-      Elasticsearch
-      MLflow
-    
-    ☁️ Infrastructure
-      AWS/GCP/Azure
-      Docker
-      Kubernetes
-      GitHub Actions
-      Terraform
-      Prometheus
-      Grafana
-      ELK Stack
-1.3 Architecture Principles
-markdown
-┌─────────────────────────────────────────────────────────────────────────────┐
-│                          🎯 ARCHITECTURE PRINCIPLES                          │
-├─────────────────────────────────────────────────────────────────────────────┤
-│                                                                             │
-│  🔷 **Scalability First**                                                   │
-│  • Horizontal scaling with Kubernetes                                      │
-│  • Stateless services for easy replication                                 │
-│  • Database sharding ready for growth                                      │
-│                                                                             │
-│  🔷 **API-First Design**                                                    │
-│  • RESTful APIs with OpenAPI 3.0 specification                             │
-│  • Versioned APIs (/v1, /v2) for backward compatibility                    │
-│  • GraphQL gateway for complex queries                                     │
-│                                                                             │
-│  🔷 **Security by Design**                                                  │
-│  • Zero-trust architecture                                                  │
-│  • Defense in depth (WAF, rate limiting, encryption)                       │
-│  • Regular security audits and penetration testing                         │
-│                                                                             │
-│  🔷 **AI-Native Architecture**                                              │
-│  • ML models as microservices                                              │
-│  • Feature store for real-time predictions                                 │
-│  • A/B testing framework for model comparisons                             │
-│                                                                             │
-│  🔷 **Resilience & Reliability**                                            │
-│  • Circuit breakers for external dependencies                              │
-│  • Graceful degradation under load                                         │
-│  • Automated failover and disaster recovery                                │
-│                                                                             │
-│  🔷 **Observability**                                                       │
-│  • Distributed tracing (OpenTelemetry)                                     │
-│  • Structured logging (JSON)                                               │
-│  • Real-time metrics and alerts                                            │
-│                                                                             │
-└─────────────────────────────────────────────────────────────────────────────┘
-2. Frontend Design
-2.1 Component Architecture
-graph TD
-    subgraph "📱 Pages"
-        Home[Home Page]
-        Dashboard[Dashboard]
-        Schemes[Schemes Page]
-        Applications[Applications Page]
-        Documents[Document Vault]
-        Settings[Settings Page]
-        Verify[Verify Document]
-    end
-
-    subgraph "🧩 Components"
-        Layout[Layout Components]
-        UI[UI Components]
-        Forms[Form Components]
-        Modals[Modal Components]
-        Cards[Card Components]
-        Charts[Chart Components]
-    end
-
-    subgraph "🔄 State Management"
-        Store[Zustand Store]
-        Query[React Query]
-        Local[Local Storage]
-    end
-
-    subgraph "🔧 Services"
-        API[API Service]
-        Auth[Auth Service]
-        Document[Document Service]
-        Scheme[Scheme Service]
-        AI[AI Service]
-    end
-
-    subgraph "🎨 Styles"
-        Global[Global Styles]
-        Themes[Theme System]
-        Utils[Utility Classes]
-    end
-
-    Home --> Layout
-    Home --> Cards
-    Dashboard --> Charts
-    Dashboard --> Cards
-    Schemes --> Forms
-    Schemes --> Cards
-    Applications --> Modals
-    Documents --> Modals
-    Settings --> Forms
-    
-    Cards --> UI
-    Forms --> UI
-    Modals --> UI
-    Charts --> UI
-    
-    UI --> Store
-    UI --> Query
-    Store --> Local
-    
-    Query --> API
-    API --> Auth
-    API --> Document
-    API --> Scheme
-    API --> AI
-
-    classDef pages fill:#bbdefb,stroke:#1976d2,stroke-width:2px;
-    classDef components fill:#c8e6c9,stroke:#388e3c,stroke-width:2px;
-    classDef state fill:#fff9c4,stroke:#fbc02d,stroke-width:2px;
-    classDef services fill:#ffccbc,stroke:#f4511e,stroke-width:2px;
-    classDef styles fill:#e1bee7,stroke:#8e24aa,stroke-width:2px;
-
-    class Home,Dashboard,Schemes,Applications,Documents,Settings,Verify pages;
-    class Layout,UI,Forms,Modals,Cards,Charts components;
-    class Store,Query,Local state;
-    class API,Auth,Document,Scheme,AI services;
-    class Global,Themes,Utils styles;
-2.2 State Management
-javascript
-// 📁 store/userStore.js
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { authAPI } from '@/services/api';
-
-const useUserStore = create(
-  persist(
-    (set, get) => ({
-      // State
-      user: null,
-      token: null,
-      isAuthenticated: false,
-      isLoading: false,
-      error: null,
-      
-      // Profile data
-      profile: {
-        personal: {},
-        professional: {},
-        documents: [],
-        preferences: {}
-      },
-      
-      // Actions
-      login: async (credentials) => {
-        set({ isLoading: true, error: null });
-        try {
-          const response = await authAPI.login(credentials);
-          if (response.success) {
-            set({
-              user: response.user,
-              token: response.token,
-              isAuthenticated: true,
-              isLoading: false
-            });
-          }
-        } catch (error) {
-          set({ error: error.message, isLoading: false });
-        }
-      },
-      
-      logout: () => {
-        authAPI.logout();
-        set({
-          user: null,
-          token: null,
-          isAuthenticated: false
-        });
-      },
-      
-      updateProfile: async (profileData) => {
-        set({ isLoading: true });
-        try {
-          const response = await authAPI.updateProfile(profileData);
-          if (response.success) {
-            set((state) => ({
-              user: { ...state.user, ...response.user },
-              profile: { ...state.profile, ...profileData },
-              isLoading: false
-            }));
-          }
-        } catch (error) {
-          set({ error: error.message, isLoading: false });
-        }
-      },
-      
-      // Selectors
-      getFullName: () => {
-        const user = get().user;
-        return user ? `${user.firstName} ${user.lastName}` : '';
-      },
-      
-      getEligibilityScore: () => {
-        const profile = get().profile;
-        // Calculate score based on profile completion
-        let score = 0;
-        const required = ['name', 'dob', 'gender', 'occupation', 'income'];
-        required.forEach(field => {
-          if (profile.personal[field]) score += 20;
-        });
-        return score;
-      }
-    }),
-    {
-      name: 'saarthi-user-storage',
-      partialize: (state) => ({
-        user: state.user,
-        token: state.token,
-        isAuthenticated: state.isAuthenticated
-      })
-    }
-  )
-);
-
-export default useUserStore;
-javascript
-// 📁 store/schemeStore.js
-import { create } from 'zustand';
-import { schemeAPI } from '@/services/api';
-
-const useSchemeStore = create((set, get) => ({
-  // State
-  schemes: [],
-  recommendedSchemes: [],
-  selectedScheme: null,
-  filters: {
-    category: 'all',
-    state: 'all',
-    minMatchScore: 0,
-    searchTerm: ''
-  },
-  isLoading: false,
-  error: null,
-  
-  // Actions
-  fetchSchemes: async () => {
-    set({ isLoading: true });
-    try {
-      const response = await schemeAPI.getAllSchemes();
-      set({
-        schemes: response.data,
-        isLoading: false
-      });
-    } catch (error) {
-      set({ error: error.message, isLoading: false });
+#### Users Collection
+```javascript
+{
+  _id: ObjectId,
+  email: String (unique, indexed),
+  phone: String (unique, indexed),
+  password: String (hashed),
+  personalInfo: {
+    name: String,
+    dob: Date,
+    gender: String,
+    category: String,
+    disability: {
+      hasDisability: Boolean,
+      type: String,
+      percentage: Number
     }
   },
-  
-  getRecommendations: async (userId) => {
-    set({ isLoading: true });
-    try {
-      const response = await schemeAPI.getRecommendations(userId);
-      set({
-        recommendedSchemes: response.data,
-        isLoading: false
-      });
-    } catch (error) {
-      set({ error: error.message, isLoading: false });
-    }
+  address: {
+    street: String,
+    city: String,
+    district: String,
+    state: String (indexed),
+    pincode: String (indexed)
   },
-  
-  setFilter: (key, value) => {
-    set((state) => ({
-      filters: { ...state.filters, [key]: value }
-    }));
-    get().applyFilters();
+  professionalInfo: {
+    occupation: String (indexed),
+    annualIncome: Number (indexed),
+    employmentType: String
   },
-  
-  applyFilters: () => {
-    const { schemes, filters } = get();
-    let filtered = [...schemes];
-    
-    if (filters.category !== 'all') {
-      filtered = filtered.filter(s => s.category === filters.category);
-    }
-    
-    if (filters.state !== 'all') {
-      filtered = filtered.filter(s => s.state === filters.state);
-    }
-    
-    if (filters.searchTerm) {
-      const term = filters.searchTerm.toLowerCase();
-      filtered = filtered.filter(s => 
-        s.name.toLowerCase().includes(term) ||
-        s.description.toLowerCase().includes(term)
-      );
-    }
-    
-    filtered = filtered.filter(s => s.matchScore >= filters.minMatchScore);
-    
-    set({ filteredSchemes: filtered });
+  familyInfo: {
+    familySize: Number,
+    members: Array
   },
-  
-  // Selectors
-  getCategories: () => {
-    const schemes = get().schemes;
-    const categories = new Set(schemes.map(s => s.category));
-    return ['all', ...Array.from(categories)];
+  documents: [ObjectId],
+  preferences: {
+    language: String,
+    theme: String,
+    notifications: Object
   },
-  
-  getStates: () => {
-    const schemes = get().schemes;
-    const states = new Set(schemes.map(s => s.state).filter(Boolean));
-    return ['all', ...Array.from(states)];
-  }
-}));
-
-export default useSchemeStore;
-2.3 Routing Structure
-javascript
-// 📁 App.jsx
-import React, { Suspense, lazy } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { AuthProvider } from './contexts/AuthContext';
-import ProtectedRoute from './components/ProtectedRoute';
-import LoadingSpinner from './components/LoadingSpinner';
-
-// Lazy load pages for better performance
-const Home = lazy(() => import('./pages/Home'));
-const Dashboard = lazy(() => import('./pages/Dashboard'));
-const Schemes = lazy(() => import('./pages/Schemes'));
-const SchemeDetails = lazy(() => import('./pages/SchemeDetails'));
-const Applications = lazy(() => import('./pages/Applications'));
-const ApplicationDetails = lazy(() => import('./pages/ApplicationDetails'));
-const DocumentVault = lazy(() => import('./pages/DocumentVault'));
-const Settings = lazy(() => import('./pages/Settings'));
-const VerifyDocument = lazy(() => import('./pages/VerifyDocument'));
-const Profile = lazy(() => import('./pages/Profile'));
-const CompareSchemes = lazy(() => import('./pages/CompareSchemes'));
-const AIAssistant = lazy(() => import('./pages/AIAssistant'));
-const About = lazy(() => import('./pages/About'));
-const Contact = lazy(() => import('./pages/Contact'));
-const FAQ = lazy(() => import('./pages/FAQ'));
-const Privacy = lazy(() => import('./pages/Privacy'));
-const Terms = lazy(() => import('./pages/Terms'));
-
-function App() {
-  return (
-    <BrowserRouter>
-      <AuthProvider>
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            {/* Public Routes */}
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            
-            {/* Public Verification Routes */}
-            <Route path="/verify-document" element={<VerifyDocument />} />
-            <Route path="/verify-failed" element={<VerifyDocument />} />
-            
-            {/* Protected Routes */}
-            <Route path="/dashboard" element={
-              <ProtectedRoute>
-                <Dashboard />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/schemes" element={
-              <ProtectedRoute>
-                <Schemes />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/schemes/:id" element={
-              <ProtectedRoute>
-                <SchemeDetails />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/compare" element={
-              <ProtectedRoute>
-                <CompareSchemes />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/applications" element={
-              <ProtectedRoute>
-                <Applications />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/applications/:id" element={
-              <ProtectedRoute>
-                <ApplicationDetails />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/documents" element={
-              <ProtectedRoute>
-                <DocumentVault />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/profile" element={
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/settings" element={
-              <ProtectedRoute>
-                <Settings />
-              </ProtectedRoute>
-            } />
-            
-            <Route path="/ai-assistant" element={
-              <ProtectedRoute>
-                <AIAssistant />
-              </ProtectedRoute>
-            } />
-            
-            {/* Catch all */}
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
-        </Suspense>
-      </AuthProvider>
-    </BrowserRouter>
-  );
-}
-
-export default App;
-2.4 UI/UX Design System
-css
-/* 📁 styles/design-system.css */
-
-:root {
-  /* 🎨 Color Palette */
-  --primary-50: #eef2ff;
-  --primary-100: #e0e7ff;
-  --primary-200: #c7d2fe;
-  --primary-300: #a5b4fc;
-  --primary-400: #818cf8;
-  --primary-500: #6366f1;
-  --primary-600: #4f46e5;
-  --primary-700: #4338ca;
-  --primary-800: #3730a3;
-  --primary-900: #312e81;
-  
-  --secondary-50: #f0fdf4;
-  --secondary-500: #22c55e;
-  --secondary-600: #16a34a;
-  
-  --accent-50: #fff7ed;
-  --accent-500: #f97316;
-  --accent-600: #ea580c;
-  
-  --neutral-50: #f9fafb;
-  --neutral-100: #f3f4f6;
-  --neutral-200: #e5e7eb;
-  --neutral-300: #d1d5db;
-  --neutral-400: #9ca3af;
-  --neutral-500: #6b7280;
-  --neutral-600: #4b5563;
-  --neutral-700: #374151;
-  --neutral-800: #1f2937;
-  --neutral-900: #111827;
-  
-  --success-50: #f0fdf4;
-  --success-500: #22c55e;
-  --success-600: #16a34a;
-  
-  --warning-50: #fefce8;
-  --warning-500: #eab308;
-  --warning-600: #ca8a04;
-  
-  --error-50: #fef2f2;
-  --error-500: #ef4444;
-  --error-600: #dc2626;
-  
-  --info-50: #eff6ff;
-  --info-500: #3b82f6;
-  --info-600: #2563eb;
-
-  /* 📏 Spacing */
-  --space-1: 0.25rem;
-  --space-2: 0.5rem;
-  --space-3: 0.75rem;
-  --space-4: 1rem;
-  --space-5: 1.25rem;
-  --space-6: 1.5rem;
-  --space-8: 2rem;
-  --space-10: 2.5rem;
-  --space-12: 3rem;
-  --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
-
-  /* 🔤 Typography */
-  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
-  --font-serif: 'Merriweather', Georgia, serif;
-  --font-mono: 'Fira Code', monospace;
-  
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: 1.25rem;
-  --text-2xl: 1.5rem;
-  --text-3xl: 1.875rem;
-  --text-4xl: 2.25rem;
-  --text-5xl: 3rem;
-  
-  --font-light: 300;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-  
-  --line-height-none: 1;
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.75;
-  --line-height-loose: 2;
-
-  /* 🎭 Shadows */
-  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  
-  --shadow-primary: 0 10px 15px -3px rgba(99, 102, 241, 0.3);
-  --shadow-secondary: 0 10px 15px -3px rgba(34, 197, 94, 0.3);
-  --shadow-accent: 0 10px 15px -3px rgba(249, 115, 22, 0.3);
-
-  /* 🎯 Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.375rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
-  --radius-2xl: 1rem;
-  --radius-3xl: 1.5rem;
-  --radius-full: 9999px;
-
-  /* 🌀 Animations */
-  --transition-fast: 150ms;
-  --transition-base: 250ms;
-  --transition-slow: 350ms;
-  
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* 📱 Breakpoints */
-  --breakpoint-sm: 640px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 1024px;
-  --breakpoint-xl: 1280px;
-  --breakpoint-2xl: 1536px;
-}
-
-/* 🌓 Dark Mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --neutral-50: #111827;
-    --neutral-100: #1f2937;
-    --neutral-200: #374151;
-    --neutral-300: #4b5563;
-    --neutral-400: #6b7280;
-    --neutral-500: #9ca3af;
-    --neutral-600: #d1d5db;
-    --neutral-700: #e5e7eb;
-    --neutral-800: #f3f4f6;
-    --neutral-900: #f9fafb;
+  metadata: {
+    createdAt: Date,
+    updatedAt: Date,
+    lastLogin: Date,
+    verified: Boolean,
+    profileCompletion: Number
   }
 }
+```
 
-/* 📝 Base Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+#### Schemes Collection
+```javascript
+{
+  _id: ObjectId,
+  schemeId: String (unique, indexed),
+  schemeName: Object (multilingual),
+  ministry: {
+    name: String,
+    department: String
+  },
+  category: [String] (indexed),
+  level: String (indexed), // Central/State
+  state: String (indexed),
+  description: Object (multilingual),
+  benefits: [{
+    type: String,
+    amount: Number,
+    frequency: String
+  }],
+  eligibility: {
+    ageRange: { min: Number, max: Number },
+    incomeLimit: Number,
+    occupation: [String],
+    gender: [String],
+    category: [String],
+    specificConditions: [String]
+  },
+  documents: [{
+    name: String,
+    type: String,
+    mandatory: Boolean
+  }],
+  applicationProcess: {
+    mode: [String],
+    steps: Array,
+    timeline: {
+      start: Date,
+      end: Date
+    },
+    fees: Number
+  },
+  statistics: {
+    views: Number,
+    applications: Number,
+    successRate: Number
+  },
+  metadata: {
+    lastUpdated: Date,
+    tags: [String] (indexed)
+  }
 }
+```
 
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
+#### Applications Collection
+```javascript
+{
+  _id: ObjectId,
+  userId: ObjectId (indexed),
+  schemeId: ObjectId (indexed),
+  applicationData: {
+    formData: Object,
+    documents: [ObjectId],
+    submittedAt: Date
+  },
+  status: String (indexed), // Draft, Submitted, Under Review, Approved, Rejected
+  timeline: [{
+    status: String,
+    timestamp: Date,
+    remarks: String
+  }],
+  eligibilityScore: Number,
+  rejectionReason: String,
+  metadata: {
+    createdAt: Date,
+    updatedAt: Date,
+    ipAddress: String,
+    userAgent: String
+  }
 }
+```
 
-body {
-  font-family: var(--font-sans);
-  font-size: var(--text-base);
-  line-height: var(--line-height-normal);
-  color: var(--neutral-900);
-  background-color: var(--neutral-50);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+#### Documents Collection
+```javascript
+{
+  _id: ObjectId,
+  userId: ObjectId (indexed),
+  documentType: String (indexed),
+  fileName: String,
+  fileUrl: String,
+  fileSize: Number,
+  mimeType: String,
+  extractedData: {
+    documentNumber: String,
+    issueDate: Date,
+    expiryDate: Date,
+    ocrText: String
+  },
+  verification: {
+    verified: Boolean,
+    verifiedAt: Date,
+    verificationMethod: String
+  },
+  metadata: {
+    uploadedAt: Date,
+    lastAccessed: Date
+  }
 }
+```
 
-/* 🎯 Component Classes */
-.card {
-  background: white;
-  border-radius: var(--radius-xl);
-  padding: var(--space-6);
-  box-shadow: var(--shadow-md);
-  transition: all var(--transition-base) var(--ease-out);
+### 2.2 Database Indexes
+
+```javascript
+// Users Collection
+db.users.createIndex({ email: 1 }, { unique: true })
+db.users.createIndex({ phone: 1 }, { unique: true })
+db.users.createIndex({ "address.state": 1 })
+db.users.createIndex({ "professionalInfo.occupation": 1 })
+db.users.createIndex({ "metadata.createdAt": -1 })
+
+// Schemes Collection
+db.schemes.createIndex({ schemeId: 1 }, { unique: true })
+db.schemes.createIndex({ category: 1 })
+db.schemes.createIndex({ level: 1, state: 1 })
+db.schemes.createIndex({ "metadata.tags": 1 })
+db.schemes.createIndex({ "statistics.views": -1 })
+
+// Applications Collection
+db.applications.createIndex({ userId: 1, schemeId: 1 })
+db.applications.createIndex({ status: 1 })
+db.applications.createIndex({ "metadata.createdAt": -1 })
+
+// Documents Collection
+db.documents.createIndex({ userId: 1 })
+db.documents.createIndex({ documentType: 1 })
+```
+
+---
+
+## 3. API Design
+
+### 3.1 RESTful API Endpoints
+
+#### Authentication APIs
+```
+POST   /api/v1/auth/register          - User registration
+POST   /api/v1/auth/login             - User login
+POST   /api/v1/auth/verify-otp        - OTP verification
+POST   /api/v1/auth/refresh-token     - Refresh JWT token
+POST   /api/v1/auth/forgot-password   - Password reset request
+POST   /api/v1/auth/reset-password    - Reset password
+POST   /api/v1/auth/logout            - User logout
+```
+
+#### User Profile APIs
+```
+GET    /api/v1/users/profile          - Get user profile
+PUT    /api/v1/users/profile          - Update user profile
+PATCH  /api/v1/users/profile/photo    - Update profile photo
+GET    /api/v1/users/completion       - Get profile completion score
+DELETE /api/v1/users/account          - Delete user account
+```
+
+#### Scheme APIs
+```
+GET    /api/v1/schemes                - List all schemes (with pagination)
+GET    /api/v1/schemes/:id            - Get scheme details
+GET    /api/v1/schemes/search         - Search schemes
+GET    /api/v1/schemes/recommended    - Get AI recommendations
+GET    /api/v1/schemes/trending       - Get trending schemes
+GET    /api/v1/schemes/categories     - Get scheme categories
+POST   /api/v1/schemes/:id/view       - Track scheme view
+```
+
+#### Eligibility APIs
+```
+POST   /api/v1/eligibility/check      - Check eligibility for a scheme
+POST   /api/v1/eligibility/bulk       - Bulk eligibility check
+GET    /api/v1/eligibility/score/:id  - Get eligibility score
+```
+
+#### Application APIs
+```
+GET    /api/v1/applications           - List user applications
+POST   /api/v1/applications           - Create new application
+GET    /api/v1/applications/:id       - Get application details
+PUT    /api/v1/applications/:id       - Update application
+DELETE /api/v1/applications/:id       - Delete draft application
+POST   /api/v1/applications/:id/submit - Submit application
+GET    /api/v1/applications/:id/status - Get application status
+```
+
+#### Document APIs
+```
+GET    /api/v1/documents              - List user documents
+POST   /api/v1/documents/upload       - Upload document
+GET    /api/v1/documents/:id          - Get document details
+DELETE /api/v1/documents/:id          - Delete document
+POST   /api/v1/documents/:id/verify   - Verify document
+```
+
+#### AI & Search APIs
+```
+POST   /api/v1/ai/chat                - Chat with AI assistant
+POST   /api/v1/ai/voice               - Voice input processing
+GET    /api/v1/search                 - Full-text search
+POST   /api/v1/search/voice           - Voice search
+```
+
+#### Notification APIs
+```
+GET    /api/v1/notifications          - Get user notifications
+PUT    /api/v1/notifications/:id/read - Mark as read
+PUT    /api/v1/notifications/settings - Update notification preferences
+```
+
+### 3.2 API Response Format
+
+#### Success Response
+```javascript
+{
+  success: true,
+  data: {
+    // Response data
+  },
+  message: "Operation successful",
+  timestamp: "2024-01-15T10:30:00Z"
 }
+```
 
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-lg);
+#### Error Response
+```javascript
+{
+  success: false,
+  error: {
+    code: "ERROR_CODE",
+    message: "Human-readable error message",
+    details: {}
+  },
+  timestamp: "2024-01-15T10:30:00Z"
 }
+```
 
+#### Pagination Response
+```javascript
+{
+  success: true,
+  data: [],
+  pagination: {
+    page: 1,
+    limit: 20,
+    total: 150,
+    totalPages: 8,
+    hasNext: true,
+    hasPrev: false
+  }
+}
+```
+
+---
+
+## 4. User Interface Design
+
+### 4.1 Design System
+
+#### Color Palette
+```css
+/* Primary Colors */
+--primary-blue: #1E40AF;      /* Main brand color */
+--primary-blue-light: #3B82F6;
+--primary-blue-dark: #1E3A8A;
+
+/* Secondary Colors */
+--secondary-green: #059669;    /* Success states */
+--secondary-orange: #F59E0B;   /* Warnings */
+--secondary-red: #DC2626;      /* Errors */
+
+/* Neutral Colors */
+--gray-50: #F9FAFB;
+--gray-100: #F3F4F6;
+--gray-200: #E5E7EB;
+--gray-300: #D1D5DB;
+--gray-500: #6B7280;
+--gray-700: #374151;
+--gray-900: #111827;
+
+/* Background Colors */
+--bg-primary: #FFFFFF;
+--bg-secondary: #F9FAFB;
+--bg-dark: #1F2937;
+
+/* Text Colors */
+--text-primary: #111827;
+--text-secondary: #6B7280;
+--text-light: #9CA3AF;
+```
+
+#### Typography
+```css
+/* Font Family */
+--font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+--font-hindi: 'Noto Sans Devanagari', sans-serif;
+--font-tamil: 'Noto Sans Tamil', sans-serif;
+
+/* Font Sizes */
+--text-xs: 0.75rem;    /* 12px */
+--text-sm: 0.875rem;   /* 14px */
+--text-base: 1rem;     /* 16px */
+--text-lg: 1.125rem;   /* 18px */
+--text-xl: 1.25rem;    /* 20px */
+--text-2xl: 1.5rem;    /* 24px */
+--text-3xl: 1.875rem;  /* 30px */
+--text-4xl: 2.25rem;   /* 36px */
+
+/* Font Weights */
+--font-normal: 400;
+--font-medium: 500;
+--font-semibold: 600;
+--font-bold: 700;
+```
+
+#### Spacing System
+```css
+--space-1: 0.25rem;   /* 4px */
+--space-2: 0.5rem;    /* 8px */
+--space-3: 0.75rem;   /* 12px */
+--space-4: 1rem;      /* 16px */
+--space-5: 1.25rem;   /* 20px */
+--space-6: 1.5rem;    /* 24px */
+--space-8: 2rem;      /* 32px */
+--space-10: 2.5rem;   /* 40px */
+--space-12: 3rem;     /* 48px */
+--space-16: 4rem;     /* 64px */
+```
+
+#### Border Radius
+```css
+--radius-sm: 0.25rem;   /* 4px */
+--radius-md: 0.5rem;    /* 8px */
+--radius-lg: 0.75rem;   /* 12px */
+--radius-xl: 1rem;      /* 16px */
+--radius-full: 9999px;  /* Fully rounded */
+```
+
+#### Shadows
+```css
+--shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+--shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+--shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+--shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+```
+
+### 4.2 Component Library
+
+#### Button Component
+```jsx
+// Primary Button
+<button className="btn btn-primary">
+  Apply Now
+</button>
+
+// CSS
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-2);
   padding: var(--space-3) var(--space-6);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius-md);
   font-weight: var(--font-medium);
-  font-size: var(--text-sm);
-  cursor: pointer;
-  transition: all var(--transition-base) var(--ease-out);
-  border: none;
+  transition: all 0.2s;
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+  background: var(--primary-blue);
   color: white;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, var(--primary-700), var(--primary-800));
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-primary);
+  background: var(--primary-blue-dark);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
 }
+```
 
-.btn-secondary {
-  background: var(--secondary-500);
-  color: white;
-}
+#### Card Component
+```jsx
+<div className="card">
+  <div className="card-header">
+    <h3>Scheme Name</h3>
+  </div>
+  <div className="card-body">
+    <p>Scheme description...</p>
+  </div>
+  <div className="card-footer">
+    <button>View Details</button>
+  </div>
+</div>
 
-.btn-outline {
-  background: transparent;
-  border: 2px solid var(--primary-600);
-  color: var(--primary-600);
-}
-
-.btn-outline:hover {
-  background: var(--primary-50);
-  transform: translateY(-2px);
-}
-
-.input {
-  width: 100%;
-  padding: var(--space-3) var(--space-4);
-  border: 1px solid var(--neutral-300);
+// CSS
+.card {
+  background: var(--bg-primary);
   border-radius: var(--radius-lg);
-  font-size: var(--text-sm);
-  transition: all var(--transition-base) var(--ease-out);
-}
-
-.input:focus {
-  outline: none;
-  border-color: var(--primary-500);
-  box-shadow: 0 0 0 3px var(--primary-100);
-}
-
-.input-error {
-  border-color: var(--error-500);
-}
-
-.input-error:focus {
-  box-shadow: 0 0 0 3px var(--error-100);
-}
-
-.badge {
-  display: inline-flex;
-  align-items: center;
-  padding: var(--space-1) var(--space-3);
-  border-radius: var(--radius-full);
-  font-size: var(--text-xs);
-  font-weight: var(--font-medium);
-}
-
-.badge-success {
-  background: var(--success-50);
-  color: var(--success-600);
-}
-
-.badge-warning {
-  background: var(--warning-50);
-  color: var(--warning-600);
-}
-
-.badge-error {
-  background: var(--error-50);
-  color: var(--error-600);
-}
-
-.badge-info {
-  background: var(--info-50);
-  color: var(--info-600);
-}
-
-/* 🎨 Animations */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideIn {
-  from { transform: translateX(-100%); }
-  to { transform: translateX(0); }
-}
-
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-.fade-in {
-  animation: fadeIn var(--transition-slow) var(--ease-out);
-}
-
-.slide-in {
-  animation: slideIn var(--transition-slow) var(--ease-out);
-}
-
-.spin {
-  animation: spin 1s linear infinite;
-}
-
-.pulse {
-  animation: pulse 2s var(--ease-in-out) infinite;
-}
-
-/* 📱 Responsive Utilities */
-.hidden {
-  display: none;
-}
-
-@media (min-width: 640px) {
-  .sm\:block { display: block; }
-  .sm\:flex { display: flex; }
-  .sm\:hidden { display: none; }
-}
-
-@media (min-width: 768px) {
-  .md\:block { display: block; }
-  .md\:flex { display: flex; }
-  .md\:hidden { display: none; }
-}
-
-@media (min-width: 1024px) {
-  .lg\:block { display: block; }
-  .lg\:flex { display: flex; }
-  .lg\:hidden { display: none; }
-}
-
-/* ♿ Accessibility */
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
+  box-shadow: var(--shadow-md);
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
 }
 
-.focus\:outline-none:focus {
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+.card-header {
+  padding: var(--space-4);
+  border-bottom: 1px solid var(--gray-200);
 }
 
-.focus\:ring-2:focus {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+.card-body {
+  padding: var(--space-4);
 }
-3. Backend Design
-3.1 API Architecture
-javascript
-// 📁 server.js
-const express = require('express');
-const mongoose = require('mongoose');
-const cors = require('cors');
-const helmet = require('helmet');
-const compression = require('compression');
-const rateLimit = require('express-rate-limit');
-const morgan = require('morgan');
-const dotenv = require('dotenv');
-const path = require('path');
 
-// Load environment variables
-dotenv.config({ path: './.env' });
+.card-footer {
+  padding: var(--space-4);
+  background: var(--gray-50);
+}
+```
 
-// Import routes
-const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/users');
-const schemeRoutes = require('./routes/schemes');
-const applicationRoutes = require('./routes/applications');
-const documentRoutes = require('./routes/documents');
-const aiRoutes = require('./routes/ai');
-const adminRoutes = require('./routes/admin');
+### 4.3 Page Layouts
 
-// Import middleware
-const { errorHandler } = require('./middleware/errorHandler');
-const { logger } = require('./middleware/logger');
-const { cacheMiddleware } = require('./middleware/cache');
+#### Home Page Wireframe
+```
+┌─────────────────────────────────────────────────────────┐
+│  Header: Logo | Search | Language | Profile             │
+├─────────────────────────────────────────────────────────┤
+│                                                           │
+│  Hero Section:                                           │
+│  "Find Government Schemes Made for You"                  │
+│  [Search Bar with Voice Input]                          │
+│                                                           │
+├─────────────────────────────────────────────────────────┤
+│  Recommended Schemes (AI-Powered)                        │
+│  ┌──────┐  ┌──────┐  ┌──────┐  ┌──────┐               │
+│  │Scheme│  │Scheme│  │Scheme│  │Scheme│               │
+│  │Card 1│  │Card 2│  │Card 3│  │Card 4│               │
+│  └──────┘  └──────┘  └──────┘  └──────┘               │
+├─────────────────────────────────────────────────────────┤
+│  Browse by Category                                      │
+│  [Agriculture] [Education] [Health] [Pension]           │
+├─────────────────────────────────────────────────────────┤
+│  Trending Schemes                                        │
+│  Statistics | Success Stories                           │
+├─────────────────────────────────────────────────────────┤
+│  Footer: Links | Contact | Social Media                 │
+└─────────────────────────────────────────────────────────┘
+```
 
-const app = express();
+#### Scheme Details Page
+```
+┌─────────────────────────────────────────────────────────┐
+│  Breadcrumb: Home > Schemes > Scheme Name               │
+├─────────────────────────────────────────────────────────┤
+│  ┌─────────────────────┐  ┌──────────────────────────┐ │
+│  │                     │  │  Eligibility Score       │ │
+│  │  Scheme Image       │  │  ████████░░ 85%          │ │
+│  │                     │  │                          │ │
+│  └─────────────────────┘  │  [Check Eligibility]     │ │
+│                            │  [Apply Now]             │ │
+│  Scheme Name               └──────────────────────────┘ │
+│  Ministry | Category                                    │
+├─────────────────────────────────────────────────────────┤
+│  Tabs: [Overview] [Benefits] [Eligibility] [Documents] │
+│                                                          │
+│  Tab Content Area                                       │
+│                                                          │
+├─────────────────────────────────────────────────────────┤
+│  Similar Schemes                                        │
+│  AI Chat Assistant (Bottom Right)                      │
+└─────────────────────────────────────────────────────────┘
+```
 
-// ============================================
-// 🛡️ SECURITY MIDDLEWARE
-// ============================================
+---
 
-// Helmet for security headers
-app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'"],
-      scriptSrc: ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-      imgSrc: ["'self'", "data:", "https:"],
-    },
-  },
-}));
+## 5. Security Architecture
 
-// CORS configuration
-const corsOptions = {
-  origin: process.env.NODE_ENV === 'production' 
-    ? process.env.FRONTEND_URL 
-    : ['http://localhost:5173', 'http://localhost:3000'],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'x-auth-token'],
-  exposedHeaders: ['x-auth-token'],
-  maxAge: 86400 // 24 hours
-};
+### 5.1 Authentication Flow
 
-app.use(cors(corsOptions));
+```
+User Login Flow:
+1. User enters email/phone + password
+2. Backend validates credentials
+3. If valid, generate JWT access token (15 min) + refresh token (30 days)
+4. Store refresh token in httpOnly cookie
+5. Return access token to client
+6. Client stores access token in memory (not localStorage)
+7. Include access token in Authorization header for API calls
+8. On token expiry, use refresh token to get new access token
+```
 
-// Rate limiting
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // Limit each IP to 100 requests per windowMs
-  message: 'Too many requests from this IP, please try again later.',
-  standardHeaders: true,
-  legacyHeaders: false,
-});
+### 5.2 Authorization Levels
 
-app.use('/api/', limiter);
+```javascript
+// Role-Based Access Control
+const roles = {
+  USER: ['read:own', 'write:own'],
+  ADMIN: ['read:all', 'write:all', 'delete:all'],
+  VERIFIER: ['read:all', 'verify:documents'],
+  CSC_OPERATOR: ['read:all', 'write:assisted']
+}
+```
 
-// ============================================
-// 📦 REQUEST PARSING & LOGGING
-// ============================================
+### 5.3 Data Encryption
 
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-app.use(compression());
+```javascript
+// Encryption Strategy
+- Passwords: bcrypt with 10 salt rounds
+- Sensitive data (Aadhaar, PAN): AES-256-GCM
+- Data in transit: TLS 1.3
+- Database: MongoDB encryption at rest
+- File storage: S3 server-side encryption
+```
 
-// Logging
-app.use(morgan('combined', { stream: logger.stream }));
+---
 
-// Static files
-app.use('/uploads', express.static(path.join(__dirname, 'uploads'), {
-  maxAge: '1d',
-  immutable: true
-}));
+## 6. AI/ML Architecture
 
-// ============================================
-// 🗄️ DATABASE CONNECTION
-// ============================================
+### 6.1 Recommendation Engine
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  maxPoolSize: 100,
-  minPoolSize: 10,
-  socketTimeoutMS: 45000,
-  family: 4
-})
-.then(() => {
-  console.log('✅ MongoDB Connected Successfully');
-  console.log(`📊 Database: ${mongoose.connection.name}`);
-  console.log(`📍 Host: ${mongoose.connection.host}`);
+```python
+# Hybrid Recommendation System
+
+class SchemeRecommender:
+    def __init__(self):
+        self.content_based_model = ContentBasedFilter()
+        self.collaborative_model = CollaborativeFilter()
+        self.weights = {'content': 0.6, 'collaborative': 0.4}
+    
+    def recommend(self, user_profile):
+        # Content-based: Match user profile with scheme criteria
+        content_scores = self.content_based_model.score(user_profile)
+        
+        # Collaborative: Find similar users and their applications
+        collab_scores = self.collaborative_model.score(user_profile)
+        
+        # Hybrid scoring
+        final_scores = (
+            self.weights['content'] * content_scores +
+            self.weights['collaborative'] * collab_scores
+        )
+        
+        return self.rank_schemes(final_scores)
+```
+
+### 6.2 Eligibility Prediction
+
+```python
+# Machine Learning Model for Eligibility
+
+Features:
+- User demographics (age, gender, category)
+- Economic indicators (income, assets)
+- Geographic data (state, district, rural/urban)
+- Family composition
+- Employment status
+- Document availability
+
+Model: Random Forest Classifier
+Training: Historical application outcomes
+Output: Probability score (0-100%)
+```
+
+### 6.3 Document OCR Pipeline
+
+```python
+# Document Processing Pipeline
+
+1. Image Preprocessing
+   - Resize and normalize
+   - Noise reduction
+   - Contrast enhancement
+
+2. Document Classification
+   - CNN model to identify document type
+   - Confidence score threshold: 90%
+
+3. Text Extraction (OCR)
+   - Tesseract for English
+   - Google Vision API for multilingual
+
+4. Data Validation
+   - Regex patterns for document numbers
+   - Checksum validation (Aadhaar, PAN)
+   - Date format validation
+
+5. Storage
+   - Encrypted storage in S3
+   - Metadata in MongoDB
+```
+
+---
+
+## 7. Performance Optimization
+
+### 7.1 Frontend Optimization
+
+```javascript
+// Code Splitting
+const SchemeDetails = lazy(() => import('./pages/SchemeDetails'))
+const Dashboard = lazy(() => import('./pages/Dashboard'))
+
+// Image Optimization
+- Use WebP format with fallback
+- Lazy loading for images
+- Responsive images with srcset
+- CDN delivery
+
+// Caching Strategy
+- Service Worker for offline support
+- Cache API responses with React Query
+- LocalStorage for user preferences
+```
+
+### 7.2 Backend Optimization
+
+```javascript
+// Database Query Optimization
+- Use indexes on frequently queried fields
+- Implement pagination (limit 20 per page)
+- Use projection to fetch only required fields
+- Aggregate pipelines for complex queries
+
+// Caching with Redis
+- Cache scheme data (TTL: 1 hour)
+- Cache user sessions
+- Cache search results (TTL: 15 minutes)
+- Rate limiting counters
+
+// API Response Compression
+app.use(compression())
+```
+
+### 7.3 CDN Strategy
+
+```
+Static Assets Distribution:
+- Images: CloudFront CDN
+- CSS/JS bundles: CDN with versioning
+- Scheme documents: CDN with signed URLs
+- Cache-Control headers for optimal caching
+```
+
+---
+
+## 8. Monitoring & Analytics
+
+### 8.1 Application Monitoring
+
+```javascript
+// Metrics to Track
+- API response times (p50, p95, p99)
+- Error rates by endpoint
+- Database query performance
+- Memory and CPU usage
+- Active user sessions
+- Request rate per minute
+
+// Tools
+- Prometheus for metrics collection
+- Grafana for visualization
+- New Relic for APM
+- Sentry for error tracking
+```
+
+### 8.2 User Analytics
+
+```javascript
+// Events to Track
+- Page views
+- Scheme searches
+- Scheme views
+- Application starts
+- Application submissions
+- Document uploads
+- AI chat interactions
+- Feature usage
+
+// Tools
+- Google Analytics 4
+- Mixpanel for user behavior
+- Hotjar for heatmaps
+```
+
+---
+
+## 9. Deployment Architecture
+
+### 9.1 Infrastructure
+
+```
+Production Environment:
+- Cloud Provider: AWS/GCP
+- Compute: Kubernetes cluster (3 nodes minimum)
+- Database: MongoDB Atlas (M30 cluster)
+- Cache: Redis (ElastiCache)
+- Storage: S3 buckets
+- CDN: CloudFront
+- Load Balancer: Application Load Balancer
+```
+
+### 9.2 CI/CD Pipeline
+
+```yaml
+# GitHub Actions Workflow
+
+name: Deploy to Production
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  test:
+    - Run unit tests
+    - Run integration tests
+    - Code coverage check
   
-  // Create indexes
-  require('./utils/createIndexes')().catch(console.error);
-})
-.catch(err => {
-  console.error('❌ MongoDB Connection Error:', err);
-  process.exit(1);
-});
+  build:
+    - Build Docker images
+    - Push to container registry
+  
+  deploy:
+    - Deploy to Kubernetes
+    - Run smoke tests
+    - Monitor deployment
+```
 
-// MongoDB connection events
-mongoose.connection.on('error', err => {
-  console.error('❌ MongoDB error:', err);
-});
+---
 
-mongoose.connection.on('disconnected', () => {
-  console.log('⚠️ MongoDB disconnected');
-});
+## 10. Testing Strategy
 
-mongoose.connection.on('reconnected', () => {
-  console.log('✅ MongoDB reconnected');
-});
+### 10.1 Testing Pyramid
 
-// ============================================
-# ... (continues with routes, error handling, etc.)
+```
+                    ┌──────────┐
+                    │   E2E    │  (10%)
+                    └──────────┘
+                ┌────────────────┐
+                │  Integration   │  (30%)
+                └────────────────┘
+            ┌────────────────────────┐
+            │     Unit Tests         │  (60%)
+            └────────────────────────┘
+```
+
+### 10.2 Test Coverage Goals
+
+```javascript
+// Coverage Targets
+- Unit Tests: 80% code coverage
+- Integration Tests: Critical user flows
+- E2E Tests: Happy paths for key features
+- Performance Tests: Load testing for 10K concurrent users
+- Security Tests: OWASP Top 10 vulnerabilities
+```
+
+---
+
+## 11. Accessibility Design
+
+### 11.1 WCAG 2.1 AA Compliance
+
+```javascript
+// Accessibility Features
+- Semantic HTML elements
+- ARIA labels and roles
+- Keyboard navigation support
+- Screen reader compatibility
+- Color contrast ratio ≥ 4.5:1
+- Focus indicators
+- Skip navigation links
+- Alt text for images
+- Captions for videos
+- Resizable text (up to 200%)
+```
+
+---
+
+## 12. Internationalization (i18n)
+
+### 12.1 Language Support
+
+```javascript
+// Supported Languages
+const languages = {
+  en: 'English',
+  hi: 'हिंदी (Hindi)',
+  ta: 'தமிழ் (Tamil)',
+  te: 'తెలుగు (Telugu)',
+  bn: 'বাংলা (Bengali)',
+  mr: 'मराठी (Marathi)',
+  gu: 'ગુજરાતી (Gujarati)',
+  pa: 'ਪੰਜਾਬੀ (Punjabi)'
+}
+
+// Implementation with i18next
+import i18n from 'i18next'
+import { initReactI18next } from 'react-i18next'
+
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: {
+      en: { translation: enTranslations },
+      hi: { translation: hiTranslations }
+    },
+    lng: 'en',
+    fallbackLng: 'en'
+  })
+```
+
+---
+
+## 13. Error Handling Strategy
+
+### 13.1 Error Types & Responses
+
+```javascript
+// Error Codes
+const ErrorCodes = {
+  // Authentication Errors (1xxx)
+  INVALID_CREDENTIALS: 1001,
+  TOKEN_EXPIRED: 1002,
+  UNAUTHORIZED: 1003,
+  
+  // Validation Errors (2xxx)
+  INVALID_INPUT: 2001,
+  MISSING_REQUIRED_FIELD: 2002,
+  
+  // Business Logic Errors (3xxx)
+  SCHEME_NOT_FOUND: 3001,
+  NOT_ELIGIBLE: 3002,
+  APPLICATION_ALREADY_EXISTS: 3003,
+  
+  // System Errors (5xxx)
+  DATABASE_ERROR: 5001,
+  EXTERNAL_API_ERROR: 5002,
+  FILE_UPLOAD_ERROR: 5003
+}
+```
+
+---
+
+## 14. Future Enhancements
+
+### Phase 2 Features
+- Mobile app (React Native)
+- Blockchain for document verification
+- Advanced analytics dashboard
+- Government portal integration
+- Offline-first architecture
+
+### Phase 3 Features
+- Voice-only interface for feature phones
+- WhatsApp bot integration
+- Regional language voice assistants
+- Predictive scheme alerts
+- Community forums
+
+---
+
+## 15. Glossary
+
+| Term | Definition |
+|------|------------|
+| JWT | JSON Web Token - Secure authentication token |
+| OCR | Optical Character Recognition |
+| CDN | Content Delivery Network |
+| API | Application Programming Interface |
+| WCAG | Web Content Accessibility Guidelines |
+| i18n | Internationalization |
+| CI/CD | Continuous Integration/Continuous Deployment |
+| APM | Application Performance Monitoring |
+| TTL | Time To Live (cache duration) |
